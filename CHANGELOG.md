@@ -2,6 +2,9 @@
 
 ## 2026-11-13
 
+- test: add Vitest and Replanning validation
+<!-- changelog-commit: fef7f93f07e25a733ef20ba97328e9ae030f6806 -->
+
 - feat: implement Hello Hono endpoint
 <!-- changelog-commit: cbadbc7ec39f19caf402c0e51f859023d867cef2 -->
 - docs: add Hello Hono feature specification

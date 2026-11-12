@@ -19,8 +19,8 @@
 | הקמת לוח המשימות | הושלמה ונבדקה | `TASKS.md` נוצר ונקרא בחזרה; יתר שלבי הקורס ממתינים |
 | הקמת Agent Clinic וה-Constitution | הושלמה כבסיס | מסמכי יסוד ו-README קיימים; היקף MVP ייקבע במפרטים ייעודיים |
 | Hello Hono | הושלמה ונבדקה | Commit מקומי `cbadbc7`; ללא Push או Merge |
-| Replanning | הושלם מקומית, ממתין לאישור Commit | בדיקות ומסמכים עודכנו ב-Branch `replanning`; אין Merge ל-main |
-| המשך הקורס | ממתין לאישור Git | Commit/העברה ל-main/מחיקת Branch לא ייעשו בלי אישור נפרד |
+| Replanning | הושלם מקומית | Commit `fef7f93` ב-Branch `replanning`; אין Merge ל-main |
+| המשך הקורס | ממתין לאישור Git | Merge ל-main או מחיקת Branch לא ייעשו בלי אישור נפרד |
 
 ## שלב 1 — הכנת סביבת העבודה
 
@@ -103,7 +103,7 @@
 | [x] | בדיקת רספונסיביות לפי ממשק | הושלמה ונבדקה | Hello Hono הוא API ללא ממשק; המפרט מבהיר זאת. כל UI עתידי ייבדק בנייד ובשולחן עבודה |
 | [x] | ארגון מחדש של ה-Roadmap לפי סדרי עדיפות הקורס | הושלמה ונבדקה | שלבי Base Layout, Agent List, Agent Detail ו-Ailments Catalog אוחדו ל-Phase 2 |
 | [x] | יצירת Skill ל-CHANGELOG והפקת CHANGELOG ראשוני | הושלמה ונבדקה | `.claude/skills/changelog/SKILL.md`, סקריפט Python ו-`CHANGELOG.md`; נבדקו יצירה, commit נוסף באותו יום ו-idempotence |
-| [ ] | Commit מקומי של Replanning | ממתין לאישור | השינויים נבדקו ומוכנים; נדרש אישור לפני Commit |
+| [x] | Commit מקומי של Replanning | הושלם ונבדק | אושר ונוצר `fef7f93`; עדכון ה-Changelog והלוח נכלל לאחר מכן |
 | [ ] | מעבר ל-main, מיזוג ו/או מחיקת Branch לפי הוראות הקורס | חסום לאישור | לא יבוצעו ללא אישור מפורש; `feature/hello-hono` ו-`replanning` נשמרים מקומית |
 
 ## שלב 7 — מפרט ומימוש: Agents and Ailments

@@ -28,7 +28,7 @@
 
 ## שלב ב — Replanning ובדיקות
 
-**סטטוס: הושלם ונבדק מקומית ב-Branch `replanning`; Commit ממתין לאישור**
+**סטטוס: הושלם ונבדק מקומית ב-Branch `replanning`, Commit `fef7f93`**
 
 - המדיניות מגדירה Vitest, `npm test`, Typecheck ו-Build כחלק מכל שינוי.
 - מפרטי Hello Hono ומחסנית הטכנולוגיות עודכנו בהתאם למדיניות.
