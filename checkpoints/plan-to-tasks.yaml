@@ -1,0 +1,78 @@
+metadata:
+  generated: "2026-11-12"
+  source_plan: "plan.md"
+  target_tasks: "plan.md#Tasks"
+summary:
+  total_plan_items: 5
+  covered_plan_items: 5
+  missing_plan_items: 0
+  coverage_percentage: 100.0
+  total_tasks_generated: 5
+  orphan_tasks: 0
+phases:
+  - phase_id: "Phase-1"
+    phase_name: "Setup and test-first contract"
+    items:
+      - item_id: "1.1"
+        description: "Prepare route contract tests"
+        tasks:
+          - task_id: "T001"
+            description: "Write route tests first and add a minimal Hono app shell"
+        notes: ""
+  - phase_id: "Phase-2"
+    phase_name: "Endpoint and local server"
+    items:
+      - item_id: "2.1"
+        description: "Pin dependencies and test command"
+        tasks:
+          - task_id: "T002"
+            description: "Pin runtime packages and add the test script"
+        notes: ""
+      - item_id: "2.2"
+        description: "Implement the root route"
+        tasks:
+          - task_id: "T003"
+            description: "Implement GET / and preserve 404 behavior"
+        notes: ""
+      - item_id: "2.3"
+        description: "Start the Node server locally"
+        tasks:
+          - task_id: "T004"
+            description: "Bind localhost:3000 and surface startup errors"
+        notes: ""
+  - phase_id: "Phase-3"
+    phase_name: "Validation and documentation"
+    items:
+      - item_id: "3.1"
+        description: "Verify the complete contract"
+        tasks:
+          - task_id: "T005"
+            description: "Run test/build/runtime validation and update documentation"
+        notes: ""
+missing_plan_items: []
+orphan_tasks: []
+upstream_trace:
+  - plan_item: "1.1"
+    source_requirements: ["REQ-001", "REQ-002", "REQ-003", "REQ-004", "REQ-008"]
+    tasks: ["T001"]
+    full_trace: "REQ-001,REQ-002,REQ-003,REQ-004,REQ-008 → Phase-1.1 → T001"
+  - plan_item: "2.1"
+    source_requirements: ["REQ-005", "REQ-006", "REQ-008"]
+    tasks: ["T002"]
+    full_trace: "REQ-005,REQ-006,REQ-008 → Phase-2.1 → T002"
+  - plan_item: "2.2"
+    source_requirements: ["REQ-001", "REQ-002", "REQ-003", "REQ-004", "REQ-009", "REQ-010"]
+    tasks: ["T003"]
+    full_trace: "REQ-001,REQ-002,REQ-003,REQ-004,REQ-009,REQ-010 → Phase-2.2 → T003"
+  - plan_item: "2.3"
+    source_requirements: ["REQ-005", "REQ-006", "REQ-007", "REQ-009"]
+    tasks: ["T004"]
+    full_trace: "REQ-005,REQ-006,REQ-007,REQ-009 → Phase-2.3 → T004"
+  - plan_item: "3.1"
+    source_requirements: ["REQ-001", "REQ-002", "REQ-003", "REQ-004", "REQ-005", "REQ-006", "REQ-007", "REQ-008", "REQ-009", "REQ-010"]
+    tasks: ["T005"]
+    full_trace: "REQ-001..REQ-010 → Phase-3.1 → T005"
+validation:
+  passed: true
+  errors: []
+  warnings: []

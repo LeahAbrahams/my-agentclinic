@@ -1,0 +1,206 @@
+batch_id: "B01"
+required_endpoints:
+  - method: "GET"
+    path: "/"
+    source: "specs/features/hello-hono.md"
+    status: "implemented"
+  - method: "GET"
+    path: "/undefined"
+    source: "specs/features/hello-hono.md"
+    status: "implemented"
+completed_tasks: ["T001", "T002", "T003", "T004", "T005"]
+blocked_tasks: []
+files_changed:
+  T001:
+    - file: "src/app.ts"
+      change_type: "created"
+      description: "Created the Hono application and root greeting route."
+    - file: "src/app.test.ts"
+      change_type: "created"
+      description: "Added in-memory route contract tests."
+  T002:
+    - file: "package.json"
+      change_type: "modified"
+      description: "Pinned runtime dependencies and added npm test."
+    - file: "package-lock.json"
+      change_type: "modified"
+      description: "Locked exact dependency versions."
+  T003:
+    - file: "src/app.ts"
+      change_type: "modified"
+      description: "Implemented GET / with exact plain-text response."
+  T004:
+    - file: "src/index.ts"
+      change_type: "modified"
+      description: "Configured localhost:3000 server and visible bind failures."
+  T005:
+    - file: "README.md"
+      change_type: "modified"
+      description: "Documented verified server usage."
+    - file: "TASKS.md"
+      change_type: "modified"
+      description: "Recorded validation results and commit approval requirement."
+    - file: "specs/roadmap.md"
+      change_type: "modified"
+      description: "Updated the Hello Hono milestone."
+    - file: "specs/features/checklists/requirements.md"
+      change_type: "modified"
+      description: "Recorded completed validation evidence."
+    - file: "plan.md"
+      change_type: "modified"
+      description: "Added test infrastructure and implementation task status."
+    - file: "checkpoints/spec-to-plan.yaml"
+      change_type: "modified"
+      description: "Corrected the phase mapping of requirements."
+    - file: "checkpoints/tasks-to-impl.yaml"
+      change_type: "created"
+      description: "Added task-to-implementation traceability."
+upstream_artifacts_consumed:
+  T001:
+    - artifact: "specs/features/hello-hono.md"
+      used_for: "Root route status, exact body, content type, and 404 contract."
+    - artifact: "specs/constitution.md"
+      used_for: "Strict TypeScript and specification fidelity constraints."
+    - artifact: "plan.md"
+      used_for: "T001 task scope and plan reference."
+  T002:
+    - artifact: "specs/features/hello-hono.md"
+      used_for: "Exact dependency versions."
+    - artifact: "plan.md"
+      used_for: "T002 dependency and test-script scope."
+  T003:
+    - artifact: "specs/features/hello-hono.md"
+      used_for: "REQ-001 through REQ-004 and out-of-scope behavior."
+    - artifact: "plan.md"
+      used_for: "T003 route implementation scope."
+  T004:
+    - artifact: "specs/features/hello-hono.md"
+      used_for: "localhost:3000 binding and explicit startup failure."
+    - artifact: "plan.md"
+      used_for: "T004 server wiring scope."
+  T005:
+    - artifact: "specs/features/hello-hono.md"
+      used_for: "Acceptance criteria and validation plan."
+    - artifact: "plan.md"
+      used_for: "T005 validation and documentation scope."
+evidence_mapping:
+  T001:
+    - upstream: "specs/features/hello-hono.md#REQ-001..REQ-004"
+      output: "src/app.ts, src/app.test.ts"
+      evidence: "npm test passed 2/2."
+  T002:
+    - upstream: "specs/features/hello-hono.md#REQ-005"
+      output: "package.json, package-lock.json"
+      evidence: "npm ls verified hono@4.13.18 and @hono/node-server@2.1.8; npm ci succeeded."
+  T003:
+    - upstream: "specs/features/hello-hono.md#REQ-001..REQ-004"
+      output: "src/app.ts"
+      evidence: "In-memory tests and live HTTP probes passed."
+  T004:
+    - upstream: "specs/features/hello-hono.md#REQ-007"
+      output: "src/index.ts"
+      evidence: "Live process probe confirmed port 3000 and visible EADDRINUSE failure."
+  T005:
+    - upstream: "specs/features/hello-hono.md#Validation"
+      output: "README.md, TASKS.md, checkpoints/tasks-to-impl.yaml"
+      evidence: "npm ci, tests, typecheck, build, HTTP probes, and git diff --check passed."
+traceability:
+  - requirement: "REQ-001"
+    plan_item: "1.1, 2.2, 3.1"
+    task: "T001, T003, T005"
+    files: ["src/app.ts", "src/app.test.ts"]
+    status: "completed"
+  - requirement: "REQ-002"
+    plan_item: "1.1, 2.2, 3.1"
+    task: "T001, T003, T005"
+    files: ["src/app.ts", "src/app.test.ts"]
+    status: "completed"
+  - requirement: "REQ-003"
+    plan_item: "1.1, 2.2, 3.1"
+    task: "T001, T003, T005"
+    files: ["src/app.ts", "src/app.test.ts"]
+    status: "completed"
+  - requirement: "REQ-004"
+    plan_item: "1.1, 2.2, 3.1"
+    task: "T001, T003, T005"
+    files: ["src/app.test.ts"]
+    status: "completed"
+  - requirement: "REQ-005"
+    plan_item: "2.1, 2.3, 3.1"
+    task: "T002, T004, T005"
+    files: ["package.json", "package-lock.json", "src/index.ts"]
+    status: "completed"
+  - requirement: "REQ-006"
+    plan_item: "2.1, 2.3, 3.1"
+    task: "T002, T004, T005"
+    files: ["package.json", "tsconfig.json"]
+    status: "completed"
+  - requirement: "REQ-007"
+    plan_item: "2.3, 3.1"
+    task: "T004, T005"
+    files: ["src/index.ts"]
+    status: "completed"
+  - requirement: "REQ-008"
+    plan_item: "1.1, 2.1, 3.1"
+    task: "T001, T002, T005"
+    files: ["src/app.test.ts"]
+    status: "completed"
+  - requirement: "REQ-009"
+    plan_item: "2.2, 2.3, 3.1"
+    task: "T003, T004, T005"
+    files: ["src/app.ts", "src/index.ts"]
+    status: "completed"
+  - requirement: "REQ-010"
+    plan_item: "2.2, 3.1"
+    task: "T003, T005"
+    files: ["src/app.ts"]
+    status: "completed"
+protocol_violation: false
+errors: []
+warnings:
+  - "No endpoint test script was found in the repository; live endpoint probes were run directly."
+  - "Implementation is verified but not committed; user approval is required before local commit."
+endpoint_probes:
+  - method: "GET"
+    path: "/"
+    status: 200
+    result: "PASS: exact Hello Hono! text/plain response."
+  - method: "GET"
+    path: "/undefined"
+    status: 404
+    result: "PASS"
+  - method: "START"
+    path: "localhost:3000 while already occupied"
+    status: 1
+    result: "PASS: second process surfaced EADDRINUSE and exited."
+test_results:
+  T001:
+    command: "npm test"
+    passed: 2
+    failed: 0
+    skipped: 0
+    failures: []
+  T002:
+    command: "npm ci"
+    passed: 1
+    failed: 0
+    skipped: 0
+    failures: []
+  T003:
+    command: "npm test"
+    passed: 2
+    failed: 0
+    skipped: 0
+    failures: []
+  T004:
+    command: "node dist/index.js; npm start; npm run dev with live HTTP probes"
+    passed: 5
+    failed: 0
+    skipped: 0
+    failures: []
+  T005:
+    command: "npm ci; npm test; npm run typecheck; npm run build; npm start; npm run dev; live HTTP probes"
+    passed: 2
+    failed: 0
+    skipped: 0
+    failures: []

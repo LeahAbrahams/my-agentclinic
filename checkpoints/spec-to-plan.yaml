@@ -1,0 +1,152 @@
+metadata:
+  generated: "2026-11-12"
+  source_spec: "specs/features/hello-hono.md"
+  target_plan: "plan.md"
+summary:
+  total_requirements: 10
+  covered_requirements: 10
+  missing_requirements: 0
+  coverage_percentage: 100.0
+requirements:
+  - req_id: "REQ-001"
+    req_description: "Handle GET /"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1, Phase-2, Phase-3"
+      phase_name: "Setup, Endpoint and local server, Validation"
+      items:
+        - item_id: "1.1"
+          description: "Prepare route contract tests"
+        - item_id: "2.2"
+          description: "Implement the root route"
+        - item_id: "3.1"
+          description: "Verify the complete contract"
+    notes: ""
+  - req_id: "REQ-002"
+    req_description: "Return HTTP 200 on success"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1, Phase-2, Phase-3"
+      phase_name: "Setup, Endpoint and local server, Validation"
+      items:
+        - item_id: "1.1"
+          description: "Prepare route contract tests"
+        - item_id: "2.2"
+          description: "Implement the root route"
+        - item_id: "3.1"
+          description: "Verify the complete contract"
+    notes: ""
+  - req_id: "REQ-003"
+    req_description: "Return exact Hello Hono! text/plain body"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1, Phase-2, Phase-3"
+      phase_name: "Setup, Endpoint and local server, Validation"
+      items:
+        - item_id: "1.1"
+          description: "Prepare route contract tests"
+        - item_id: "2.2"
+          description: "Implement the root route"
+        - item_id: "3.1"
+          description: "Verify the complete contract"
+    notes: ""
+  - req_id: "REQ-004"
+    req_description: "Return 404 for undefined paths"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1, Phase-2, Phase-3"
+      phase_name: "Setup, Endpoint and local server, Validation"
+      items:
+        - item_id: "1.1"
+          description: "Prepare route contract tests"
+        - item_id: "2.2"
+          description: "Implement the root route"
+        - item_id: "3.1"
+          description: "Verify the complete contract"
+    notes: ""
+  - req_id: "REQ-005"
+    req_description: "Use exact Hono and Node-adapter versions"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2, Phase-3"
+      phase_name: "Endpoint and local server, Validation"
+      items:
+        - item_id: "2.1"
+          description: "Pin dependencies and test command"
+        - item_id: "2.3"
+          description: "Start the Node server locally"
+        - item_id: "3.1"
+          description: "Verify the complete contract"
+    notes: ""
+  - req_id: "REQ-006"
+    req_description: "Use the declared Node range and strict TypeScript"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2, Phase-3"
+      phase_name: "Endpoint and local server, Validation"
+      items:
+        - item_id: "2.1"
+          description: "Pin dependencies and test command"
+        - item_id: "2.3"
+          description: "Start the Node server locally"
+        - item_id: "3.1"
+          description: "Verify the complete contract"
+    notes: ""
+  - req_id: "REQ-007"
+    req_description: "Bind localhost port 3000 and surface conflicts"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2, Phase-3"
+      phase_name: "Endpoint and local server, Validation"
+      items:
+        - item_id: "2.3"
+          description: "Start the Node server locally"
+        - item_id: "3.1"
+          description: "Verify the complete contract"
+    notes: ""
+  - req_id: "REQ-008"
+    req_description: "Provide in-memory automated tests and local HTTP smoke check"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1, Phase-2, Phase-3"
+      phase_name: "Setup, Endpoint and local server, Validation"
+      items:
+        - item_id: "1.1"
+          description: "Prepare route contract tests"
+        - item_id: "2.1"
+          description: "Pin dependencies and test command"
+        - item_id: "3.1"
+          description: "Verify the complete contract"
+    notes: ""
+  - req_id: "REQ-009"
+    req_description: "Run locally without external services or a database"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2, Phase-3"
+      phase_name: "Endpoint and local server, Validation"
+      items:
+        - item_id: "2.2"
+          description: "Implement the root route"
+        - item_id: "2.3"
+          description: "Start the Node server locally"
+        - item_id: "3.1"
+          description: "Verify the complete contract"
+    notes: ""
+  - req_id: "REQ-010"
+    req_description: "Exclude HTML and unrelated product behavior"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2, Phase-3"
+      phase_name: "Endpoint and local server, Validation"
+      items:
+        - item_id: "2.2"
+          description: "Implement the root route"
+        - item_id: "3.1"
+          description: "Verify the complete contract"
+    notes: ""
+missing_requirements: []
+orphan_plan_items: []
+validation:
+  passed: true
+  errors: []
+  warnings: []

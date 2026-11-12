@@ -1,0 +1,176 @@
+metadata:
+  generated: "2026-11-13"
+  source_tasks: "plan.md#Tasks"
+  last_updated: "2026-11-13"
+summary:
+  total_tasks: 5
+  completed_tasks: 5
+  in_progress_tasks: 0
+  pending_tasks: 0
+  completion_percentage: 100.0
+tasks:
+  - task_id: "T001"
+    description: "Write route contract tests and minimal Hono app shell"
+    status: "completed"
+    implementation:
+      files_changed:
+        - file: "src/app.ts"
+          changes:
+            - change_type: "added"
+              description: "Created the Hono app and GET / greeting route"
+        - file: "src/app.test.ts"
+          changes:
+            - change_type: "added"
+              description: "Added in-memory greeting and unknown-path tests"
+    verification:
+      build_passed: true
+      test_results:
+        command: "npm test"
+        passed: 2
+        failed: 0
+        skipped: 0
+        failures: []
+      notes: "The first test run failed on the intentionally unimplemented route; both tests passed after implementation."
+    upstream_trace:
+      plan_item: "1.1"
+      requirements: ["REQ-001", "REQ-002", "REQ-003", "REQ-004", "REQ-008"]
+      full_trace: "REQ-001,REQ-002,REQ-003,REQ-004,REQ-008 → Phase-1.1 → T001 → src/app.test.ts"
+  - task_id: "T002"
+    description: "Pin runtime packages and add test command"
+    status: "completed"
+    implementation:
+      files_changed:
+        - file: "package.json"
+          changes:
+            - change_type: "modified"
+              description: "Pinned Hono packages and added npm test"
+        - file: "package-lock.json"
+          changes:
+            - change_type: "modified"
+              description: "Recorded exact dependency versions and transitive lock data"
+    verification:
+      build_passed: true
+      test_results:
+        command: "npm ci; npm test"
+        passed: 2
+        failed: 0
+        skipped: 0
+        failures: []
+      notes: "npm ci completed; Hono 4.13.18 and @hono/node-server 2.1.8 verified; npm reported 0 vulnerabilities."
+    upstream_trace:
+      plan_item: "2.1"
+      requirements: ["REQ-005", "REQ-006", "REQ-008"]
+      full_trace: "REQ-005,REQ-006,REQ-008 → Phase-2.1 → T002 → package.json, package-lock.json"
+  - task_id: "T003"
+    description: "Implement GET / greeting and retain unknown-path 404"
+    status: "completed"
+    implementation:
+      files_changed:
+        - file: "src/app.ts"
+          changes:
+            - change_type: "modified"
+              description: "Implemented exact plain-text Hello Hono! response"
+    verification:
+      build_passed: true
+      test_results:
+        command: "npm test"
+        passed: 2
+        failed: 0
+        skipped: 0
+        failures: []
+      notes: "In-memory route tests confirm status, body, content type, and 404 behavior."
+    upstream_trace:
+      plan_item: "2.2"
+      requirements: ["REQ-001", "REQ-002", "REQ-003", "REQ-004", "REQ-009", "REQ-010"]
+      full_trace: "REQ-001,REQ-002,REQ-003,REQ-004,REQ-009,REQ-010 → Phase-2.2 → T003 → src/app.ts"
+  - task_id: "T004"
+    description: "Bind localhost:3000 and surface startup errors"
+    status: "completed"
+    implementation:
+      files_changed:
+        - file: "src/index.ts"
+          changes:
+            - change_type: "modified"
+              description: "Started the Node adapter on localhost:3000 and reported bind errors"
+    verification:
+      build_passed: true
+      test_results:
+        command: "node dist/index.js; npm start; npm run dev with live HTTP probes"
+        passed: 5
+        failed: 0
+        skipped: 0
+        failures: []
+      notes: "GET / returned the exact response through the built server and both npm scripts; an undefined path returned 404; a second process exited 1 with EADDRINUSE."
+    upstream_trace:
+      plan_item: "2.3"
+      requirements: ["REQ-005", "REQ-006", "REQ-007", "REQ-009"]
+      full_trace: "REQ-005,REQ-006,REQ-007,REQ-009 → Phase-2.3 → T004 → src/index.ts"
+  - task_id: "T005"
+    description: "Run full validation and update documentation"
+    status: "completed"
+    implementation:
+      files_changed:
+        - file: "README.md"
+          changes:
+            - change_type: "modified"
+              description: "Documented actual local server commands and behavior"
+        - file: "TASKS.md"
+          changes:
+            - change_type: "modified"
+              description: "Recorded verified feature completion and pending commit approval"
+        - file: "specs/roadmap.md"
+          changes:
+            - change_type: "modified"
+              description: "Updated Hello Hono milestone with measured validation results"
+        - file: "specs/features/checklists/requirements.md"
+          changes:
+            - change_type: "modified"
+              description: "Recorded implementation validation evidence"
+        - file: "plan.md"
+          changes:
+            - change_type: "modified"
+              description: "Added test infrastructure, requirement-to-task links, and completed task statuses"
+        - file: "checkpoints/spec-to-plan.yaml"
+          changes:
+            - change_type: "modified"
+              description: "Corrected plan-phase mappings for multi-phase requirements"
+        - file: "checkpoints/tasks-to-impl.yaml"
+          changes:
+            - change_type: "added"
+              description: "Recorded task-to-implementation traceability and verification"
+    verification:
+      build_passed: true
+      test_results:
+        command: "npm ci; npm test; npm run typecheck; npm run build; npm start; npm run dev; live HTTP probes"
+        passed: 2
+        failed: 0
+        skipped: 0
+        failures: []
+      notes: "npm test passed 2/2; typecheck/build/install passed; both npm server scripts responded correctly; endpoint and occupied-port probes passed; git diff --check passed."
+    upstream_trace:
+      plan_item: "3.1"
+      requirements: ["REQ-001", "REQ-002", "REQ-003", "REQ-004", "REQ-005", "REQ-006", "REQ-007", "REQ-008", "REQ-009", "REQ-010"]
+      full_trace: "REQ-001..REQ-010 → Phase-3.1 → T005 → validation report and project documentation"
+pending_tasks: []
+untracked_changes: []
+traceability_chain:
+  - chain_id: "TRACE-001"
+    requirement: "REQ-001"
+    plan_phase: "Phase-1, Phase-2, Phase-3"
+    plan_item: "1.1, 2.2, 3.1"
+    tasks: ["T001", "T003", "T005"]
+    files: ["src/app.ts", "src/app.test.ts"]
+    status: "complete"
+  - chain_id: "TRACE-002"
+    requirement: "REQ-007"
+    plan_phase: "Phase-2, Phase-3"
+    plan_item: "2.3, 3.1"
+    tasks: ["T004", "T005"]
+    files: ["src/index.ts"]
+    status: "complete"
+validation:
+  passed: true
+  errors: []
+  warnings:
+    - "Local implementation commit requires user approval."
+  blocking_issues: []
