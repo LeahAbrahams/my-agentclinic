@@ -1,17 +1,18 @@
-import assert from "node:assert/strict";
-import test from "node:test";
+import { describe, expect, it } from "vitest";
 import { app } from "./app.js";
 
-test("GET / returns the plain-text greeting", async () => {
-  const response = await app.request("/");
+describe("GET /", () => {
+  it("returns the exact plain-text greeting", async () => {
+    const response = await app.request("/");
 
-  assert.equal(response.status, 200);
-  assert.equal(await response.text(), "Hello Hono!");
-  assert.equal(response.headers.get("content-type")?.split(";")[0], "text/plain");
-});
+    expect(response.status).toBe(200);
+    expect(await response.text()).toBe("Hello Hono!");
+    expect(response.headers.get("content-type")?.split(";")[0]).toBe("text/plain");
+  });
 
-test("GET to an undefined path returns 404", async () => {
-  const response = await app.request("/undefined");
+  it("returns 404 for an undefined path", async () => {
+    const response = await app.request("/undefined");
 
-  assert.equal(response.status, 404);
+    expect(response.status).toBe(404);
+  });
 });

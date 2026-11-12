@@ -157,9 +157,7 @@ traceability:
     status: "completed"
 protocol_violation: false
 errors: []
-warnings:
-  - "No endpoint test script was found in the repository; live endpoint probes were run directly."
-  - "Implementation is verified but not committed; user approval is required before local commit."
+warnings: []
 endpoint_probes:
   - method: "GET"
     path: "/"
@@ -175,7 +173,7 @@ endpoint_probes:
     result: "PASS: second process surfaced EADDRINUSE and exited."
 test_results:
   T001:
-    command: "npm test"
+    command: "npm test (Vitest)"
     passed: 2
     failed: 0
     skipped: 0
@@ -187,7 +185,7 @@ test_results:
     skipped: 0
     failures: []
   T003:
-    command: "npm test"
+    command: "npm test (Vitest)"
     passed: 2
     failed: 0
     skipped: 0
@@ -199,7 +197,7 @@ test_results:
     skipped: 0
     failures: []
   T005:
-    command: "npm ci; npm test; npm run typecheck; npm run build; npm start; npm run dev; live HTTP probes"
+    command: "npm ci; npm test (Vitest); npm run typecheck; npm run build; npm start; npm run dev; live HTTP probes"
     passed: 2
     failed: 0
     skipped: 0

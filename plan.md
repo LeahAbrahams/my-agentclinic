@@ -11,11 +11,11 @@ testable, and a Node adapter must expose it on localhost port 3000.
 ## Technical Context
 
 **Language/Version**: TypeScript 6.0.3, Node.js 24.13.0
-**Primary Dependencies**: Hono 4.13.18, `@hono/node-server` 2.1.8; `tsx`
-4.23.15 is already installed for development and tests.
+**Primary Dependencies**: Hono 4.13.18, `@hono/node-server` 2.1.8.
+**Test Tooling**: Vitest 4.1.12; `tsx` 4.23.15 is used for development.
 **Storage**: None for this feature.
-**Testing**: Node's built-in `node:test`, run through `tsx`; local HTTP smoke
-checks use PowerShell.
+**Testing**: Vitest 4.1.12 and Hono's in-memory request interface; local HTTP
+smoke checks use PowerShell.
 **Target Platform**: Local Node.js process on Windows, bound to localhost.
 **Performance Goals**: No throughput target; the user must receive the greeting
 from one local navigation after startup.
@@ -50,7 +50,7 @@ contract and local-only constraints in the approved feature spec.
 
 - **Requirements**: REQ-001, REQ-002, REQ-003, REQ-004, REQ-008
 - **Design inputs**: `specs/features/hello-hono.md`, scenario 1 and acceptance scenarios 1–3
-- **Description**: Write Node test cases for the root response and unknown-path 404 before implementing the route. Add only the minimal Hono app shell required to import the app; do not add response behavior yet.
+- **Description**: Write Vitest cases for the root response and unknown-path 404 before implementing the route. Add only the minimal Hono app shell required to import the app; do not add response behavior yet.
 
 ### Phase 2 — Endpoint and local server
 
@@ -58,7 +58,7 @@ contract and local-only constraints in the approved feature spec.
 
 - **Requirements**: REQ-005, REQ-006, REQ-008
 - **Design inputs**: Feature spec dependency versions and `package.json`
-- **Description**: Add exact Hono and Node-adapter versions, a test script using the already installed `tsx`, and update the npm Lockfile.
+- **Description**: Add exact Hono and Node-adapter versions, the Vitest runner and `npm test` script, and update the npm Lockfile.
 
 #### Step 2.2 — Implement the root route
 
@@ -100,8 +100,8 @@ contract and local-only constraints in the approved feature spec.
   1. Start the server and receive the greeting from `GET /`.
   2. Request an undefined path and receive `404`.
   3. Attempt startup while port 3000 is occupied and observe a visible failure without a silent port change.
-- **primaryValidationStack**: Node `node:test` through `tsx`, Hono's in-memory request interface, TypeScript typecheck/build, and PowerShell HTTP probes.
-- **Test infrastructure**: `src/app.test.ts` is the route-contract suite. The single-route API needs no shared test base class or fixtures; tests use Hono's in-memory request interface. No external service or database is used.
+- **primaryValidationStack**: Vitest, Hono's in-memory request interface, TypeScript typecheck/build, and local HTTP probes.
+- **Test infrastructure**: `src/app.test.ts` is the Vitest route-contract suite. The single-route API needs no shared fixtures; tests use Hono's in-memory request interface. No external service or database is used.
 - **Test execution rule**: Run `npm test` for every implementation batch; all contract tests must pass before the feature is considered complete.
 - **fallbackMatrix**:
   - `infra-tier`: Not applicable; this feature has no database or external infrastructure.

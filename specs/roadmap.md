@@ -12,90 +12,91 @@
 3. רעיונות שאינם מאושרים לא ייכנסו ל-MVP ולא ישנו את מפת הדרכים.
 4. משימות שתלויות באישור או בחומרי קורס יסומנו כחסומות, ולא ייחשבו שהושלמו.
 
-## שלב א — סביבת עבודה ומסמכי יסוד
+## שלב א — סביבת עבודה, Constitution ו-Hello Hono
 
-**סטטוס: בתהליך**
+**סטטוס: הושלם מקומית; Merge ל-main טרם אושר**
 
-- בדיקת סביבת העבודה והכלים — הושלמה חלקית; אימות Claude Code/GitHub חסום.
-- יצירת `TASKS.md` — הושלמה ונבדקה.
-- אישור כיוון מוצר וטיוטות README, Constitution, mission, techstack ו-roadmap.
-- שלד TypeScript Strict נוצר; Typecheck, Build, dev ו-start עברו.
-- אתחול Git ו-Commit מקומי לאחר בדיקת השינויים; ללא Push.
+- סביבת TypeScript Strict, Git ומסמכי היסוד הוקמו; חיבור Claude Code/GitHub
+  נותר לא מאומת.
+- Feature Spec, Implementation Plan, 10 דרישות, 5 משימות ו-Validation הושלמו.
+- מימוש Hono נשמר ב-`cbadbc7` על `feature/hello-hono`.
+- Vitest ו-`npm test` החליפו את Node test runner בהתאם לחומרי הקורס.
+- Vitest `4.1.12`, Typecheck, Build ו-`npm audit` (0 חולשות) אומתו ב-Branch
+  `replanning`.
+- `npm ci`, בדיקות, Typecheck, Build, `npm start`, `npm run dev`, HTTP ופורט
+  תפוס אומתו; אין Push או Merge.
 
-## שלב ב — Hello Hono
+## שלב ב — Replanning ובדיקות
 
-**סטטוס: מימוש ואימות הושלמו; Commit מקומי של הקוד ממתין לאישור**
+**סטטוס: הושלם ונבדק מקומית ב-Branch `replanning`; Commit ממתין לאישור**
 
-- Branch מקומי וראיון דרישות הושלמו.
-- טיוטת Feature Spec ו-Quality Checklist נכתבו ונבדקו.
-- Commit מקומי `45a8a86` נוצר; Push אינו מאושר.
-- Hono `4.13.18` ומתאם Node `2.1.8` ננעלו; `npm ci` עבר ללא חולשות מדווחות.
-- `npm test` עבר (2/2), TypeScript Strict ו-Build עברו.
-- אימות HTTP מקומי עבר: `GET /` החזיר `200`, גוף מדויק ו-`text/plain`;
-  נתיב לא מוכר החזיר `404`.
-- בדיקת פורט תפוס עברה: התהליך השני יצא בקוד `1` והציג `EADDRINUSE`.
-- בדיקת התאמה ל-`REQ-001`–`REQ-010` הושלמה; לא נמצאו פערי היקף.
-- Commit קוד ממתין לאישור המשתמשת; לא בוצעו Push או Merge.
+- המדיניות מגדירה Vitest, `npm test`, Typecheck ו-Build כחלק מכל שינוי.
+- מפרטי Hello Hono ומחסנית הטכנולוגיות עודכנו בהתאם למדיניות.
+- ממשק עתידי ייבנה mobile-first וייבדק בנייד ובשולחן עבודה. Hello Hono הוא
+  API ללא ממשק, לכן אין להוסיף לו CSS או בדיקת פריסה מלאכותית.
+- Skill ל-CHANGELOG נוצר; הסקריפט ויצירת היומן נבדקו ליצירה חוזרת ולקומיטים
+  מרובים באותו יום. הפעלת Skill מתוך Claude Code לא אומתה, כי פקודת `claude`
+  אינה זמינה בסביבה.
+- דרישת הקורס לארגון מחדש של שלבי המוצר משתקפת בשלב ג.
+- `npm test` (2/2), Typecheck, Build ו-`npm audit` (0 חולשות) עברו.
+- לא בוצע Commit, Merge או Push; Commit של שלב זה ממתין לאישור מפורש.
 
-## שלב ג — בדיקות ותכנון מחדש
+## שלב ג — Phase 2 מאוחדת: Layout, Agents ו-Ailments
 
-**סטטוס: ממתין**
+**סטטוס: ממתין למפרט ב-Branch `feature/agents-and-ailments`**
 
-- קביעת מדיניות בדיקות והוספת בדיקות אוטומטיות.
-- אימות בדיקות, טיפוסים והרצה; תיקון פערים ועדכון Roadmap.
-- בדיקת ממשק רספונסיבי בהתאם לדרישות שיאושרו.
-- בדיקת משימת Skill ל-CHANGELOG לפי חומרי הקורס.
+על פי Roadmap הקורס, שלבי Base Layout, Agent List, Agent Detail ו-Ailments
+Catalog מאוחדים ל-Phase 2 אחד:
 
-## שלב ד — פיצ'ר הבריאות ואווירת הסוכנות
+- Layout משותף, ניווט, רכיבי Header/Main/Footer ו-CSS רספונסיבי.
+- SQLite עם SQL Migrations ונתוני seed עבור Agents ו-Ailments.
+- מסכי רשימה/פרטים וקישור בין סוכנים לאתגרים שלהם.
+- “Agents and Ailments” יוגדרו כתוכן בדיוני של סוכני AI; לא יאוחסנו מחלות או
+  נתוני בריאות אישיים של אנשים.
+- היקף, סכימה, בחירות ממשק ותנאי קבלה ייקבעו במפרט לפני המימוש.
 
-**סטטוס: ממתין לבירור ולמפרט**
+## שלב ד — יתרת MVP: Therapies, Appointments ו-Staff Dashboard
 
-- הגדרת Feature Spec למוצר שימושי לאנשים עובדים: רעיונות לכושר וארוחות
-  בוקר/צהריים בריאות וניידות לעבודה, במעטפת של סוכנות ביון.
-- שמירת המימוש ללא אבחונים או מעקב מחלות בהתאם להעדפת המשתמשת, אלא אם
-  חומרי הקורס יוכיחו דרישה מפורשת אחרת.
-- שימוש במיגרציות SQL וב-Pico CSS לפי תנאי המשימה שהוגדרו.
-- מימוש, חילוץ טיפוסים, Code Review ובדיקות לאחר אישור המפרט.
+**סטטוס: ממתין למפרט MVP**
 
-## שלב ה — השלמת MVP ו-Validation
+- קטלוג Therapies וקישור לאתגרים בדיוניים.
+- הזמנת Appointments, אימות טופס ואישור.
+- Staff Dashboard וסיכומי פעילות, לפי המפרט והרובריקה.
+- נתוני דוגמה, בדיקות, Spec Validation והשוואה בין המפרט למימוש.
 
-**סטטוס: ממתין**
-
-- קביעת היקף MVP ותנאי קבלה במפרט מאושר.
-- מימוש פיצ'רים שנותרו, בדיקת נתונים לדוגמה ומסכים שנדרשו.
-- השוואת מפרט למימוש, תיקון פערים והרצת בדיקות חוזרת.
-- עדכון מסמכים ולוח משימות; Commit/Merge רק לאחר אישור.
-
-## שלב ו — Skills ו-Context7
+## שלב ה — Skills ו-Context7
 
 **סטטוס: ממתין**
 
-- בדיקת יכולת יצירת Skill ל-Feature Spec ובדיקה מעשית.
-- בדיקת התקנת Context7 לפי דרישות הקורס: CLI ו-Skills, לא MCP Server.
-- התקנות או התחברויות יבוצעו רק לאחר בדיקת הוראות רשמיות ואישור נדרש.
+- יצירה ובדיקה מעשית של Skill ל-Feature Spec.
+- בדיקת Context7; דרישת הקורס היא CLI ו-Skills, לא MCP Server.
+- התקנות/התחברויות רק לאחר אימות הוראות ואישור הנדרש.
+
+## שלב ו — Legacy Support ו-Build Your Own Workflow
+
+**סטטוס: חסום עד לזמינות סביבת Legacy נפרדת**
+
+- בידוד פרויקט Legacy, Reverse Engineering, TODO, README ומסמכי Constitution.
+- Feature Spec ומימוש Feedback Form; אין לשנות את Agent Clinic.
+- נדרש מקור Legacy זמין לפני ביצוע; Commit/Merge באישור בלבד.
 
 ## שלב ז — הרחבות רשות וניידות בין סוכנים
 
 **סטטוס: ממתין; לא חלק מה-MVP**
 
-- בדיקת GitHub Spec Kit, OpenSpec ו-Research Backlog.
-- בדיקת portability ל-Codex, OpenCode ו-ACP Registry.
-- אין התקנה או שינוי מערכת לפני הצגת השפעה וקבלת אישור.
+- GitHub Spec Kit, OpenSpec ו-Research Backlog.
+- Codex, OpenCode ו-ACP Registry.
+- אין התקנה או שינוי מערכת לפני הצגת ההשפעה וקבלת אישור.
 
-## שלב ח — פרויקט Legacy
+## מקורות והחלטות תכולה
 
-**סטטוס: חסום עד לקבלת פרויקט נפרד**
-
-- נדרש מהמשתמשת נתיב/קוד של פרויקט Legacy.
-- לאחר קבלתו: בידוד, Reverse Engineering, תיעוד, Constitution, Feature Spec,
-  מימוש Feedback Form, בדיקות ואימות.
-- אין לשנות או למזג בפרויקט Legacy ללא אישור.
-
-## החלטות שטרם אושרו
-
-- היקף המסכים והפעולות של MVP הבריאות.
-- מבנה הגשת הממשק וההתנהגות המקומית של האפליקציה.
-- רובריקת הקורס לגבי השם/התוכן “Agents and Ailments”.
-- בחירת Driver ל-SQLite, כלי מיגרציות ו-Runner לבדיקות.
+- מקור קורס: [מאגר הקבצים הרשמי של DeepLearning.AI](https://github.com/https-deeplearning-ai/sc-spec-driven-development-files),
+  בפרט `Video09_Project_Replanning` ו-`Video10_The_second_feature_phase`.
+- מקור הקורס מאשר את Agents & Ailments ואת איחוד שלבי Layout/Agent List/Detail/
+  Ailments; התוכן ימומש רק כאתגרי AI בדיוניים, לא כמעקב רפואי.
+- הצהרת המשימה הקיימת, שאושרה קודם, מתמקדת ברווחה לאנשים עובדים. עדכון זה
+  משמר אותה; Agents/Ailments ייחשבו לתוכן לימודי בדיוני בלבד, והקשר ביניהם
+  יתועד במפרט לפני מימוש. לא יישמרו מחלות או נתוני בריאות של אנשים.
+- Driver ל-SQLite, כלי מיגרציות ותכולת MVP מדויקת ייקבעו במפרטים.
 
 </div>
