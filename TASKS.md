@@ -21,7 +21,7 @@
 | Hello Hono | הושלמה ונבדקה | Commit `cbadbc7` נשמר בשרשרת המקומית; ללא Push |
 | Replanning | הושלם ונבדק | Commits `fef7f93`, `d8fc699`; אושר Fast-forward מקומי ל-main |
 | Agents and Ailments | מומש ונבדק בעבר | Commit `457fc19`; 22 בדיקות אוטומטיות עברו לפני עבודת ה-MVP |
-| MVP (Therapies, Appointments, Dashboard) | מומש בענף `feature/mvp`; תיקון TypeScript הוכן | Commit `6028409` הועלה; תיקון מועד פגישה ובדיקת רגרסיה ממתינים ל-push; בדיקת Vercel חוזרת ממתינה |
+| MVP (Therapies, Appointments, Dashboard) | מומש בענף `feature/mvp`; תיקון TypeScript הועלה | Commit `02920f4` נדחף; סטטוס הפריסה ב-Vercel הצליח; בדיקות מקומיות מלאות ומסעות דפדפן טרם אומתו |
 | Skill ליצירת Feature Spec | נוצר ונבדק ידנית | `.claude/skills/feature-spec/SKILL.md`; dry-run מול מפרט הפגישות הקיים; הפעלה ישירה מתוך CLI של Claude Code לא אומתה |
 
 ## שלב 1 — הכנת סביבת העבודה
@@ -207,15 +207,14 @@
 | [x] | בדיקת זמינות GitHub CLI | הושלמה ונבדקה | `gh` לא נמצא |
 | [x] | בדיקת גישה לריפו | הושלמה | `https://github.com/LeahAbrahams/my-agentclinic` נגיש |
 | [x] | Push של MVP ל-GitHub | הושלמה | ענף `feature/mvp`, Commit `6028409` |
-| [ ] | Push של תיקון Vercel | בתהליך | יבוצע אחרי בדיקת שינוי הקוד והתיעוד |
+| [x] | Push של תיקון Vercel | הושלמה ונבדקה | Commit `02920f4` בענף `feature/mvp`; סטטוס Vercel עבור ה-Commit: success |
 
 ## תמונת מצב עדכנית
 
-- התקדמות קורס: Hello Hono, Replanning ו-Agents and Ailments הושלמו; שלב MVP נכתב ב-38 משימות ועומד כרגע בתיקון/אימות Build.
-- הפרויקט בענף `feature/mvp`; ה-Commit `6028409` עלה לריפו GitHub `LeahAbrahams/my-agentclinic`.
+- התקדמות קורס: Hello Hono, Replanning ו-Agents and Ailments הושלמו; שלב MVP נכתב ב-38 משימות.
+- הפרויקט בענף `feature/mvp`; ה-Commit `02920f4` עלה לריפו GitHub `LeahAbrahams/my-agentclinic`.
 - לפי Build Log של Vercel שנשלח בשיחה, TypeScript דיווח על `month` אפשרי כ-`undefined` ב-`src/routes/appointments.ts`. המימוש עודכן לפענוח שדות התאריך מתוך המחרוזת שאומתה, ונוספה בדיקת קלט לחודש מחוץ לטווח.
-- בדיקת `tsc --noEmit` המקומית הופעלה לאחר התיקון אך נעצרה כי `@types/node` חסר. בדיקות הפרויקט המלאות והרצת האתר מחכות להרצת Build/בדיקות בסביבה עם תלויות זמינות.
-- בדיקת Vercel חוזרת נדרשת לאחר העלאת התיקון; אין סימון של המימוש כמושלם עד לקבלת תוצאה.
-- `git diff --check` ותיקוף פונקציית התאריך בבידוד יירשמו עם תוצאותיהם לאחר ההרצה.
+- סטטוס Vercel עבור `02920f4`: `success` עם תיאור `Deployment has completed`.
+- בדיקת TypeScript מבודדת ושש בדיקות התנהגות לתאריך עברו; `git diff --check` עבר. בדיקות הפרויקט המלאות ומסעות דפדפן טרם אומתו.
 
 </div>

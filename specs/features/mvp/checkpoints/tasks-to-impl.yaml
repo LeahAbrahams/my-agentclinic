@@ -633,7 +633,7 @@ tasks:
     status: "blocked"
     verification:
       build_passed: false
-      notes: "Run production HTTP and browser journeys after the latest deployment build succeeds."
+      notes: "Run production HTTP and browser journeys against the successful deployment."
     upstream_trace:
       plan_item: "5.2"
       requirements: ["REQ-041-REQ-060"]
@@ -702,8 +702,8 @@ traceability_chain:
 validation:
   passed: false
   errors:
-    - "Project-wide tests, typecheck, build, seed, audit, HTTP, and browser validation must be rerun on the latest source."
+    - "Project-wide tests, typecheck, seed, audit, HTTP, and browser validation must be run on the latest source."
   warnings:
     - "Global TypeScript transpile parsed 49 .ts/.tsx files with zero syntax diagnostics; this does not type-check dependencies."
   blocking_issues:
-    - "Required endpoint probes are pending a successful deployment build."
+    - "Required endpoint probes and browser journeys are pending runtime verification."

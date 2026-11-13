@@ -207,14 +207,12 @@ traceability:
     files: ["README.md", "specs/roadmap.md", "TASKS.md", "runtime-validation-report.md"]
     status: "partial"
 protocol_violation: false
-errors:
-  - "Latest local npm test/build runs cannot load the project executables because project dependencies are not installed."
-  - "The Vercel build log supplied on 2026-11-13 reported TS18048 in appointment date validation; the implementation was corrected and needs a new deployment build."
+errors: []
 warnings:
-  - severity: HIGH
-    message: "The latest appointment date-validation function passed isolated strict type-checking and six focused behavior checks; the full project suite and deployment build remain to be run."
-  - severity: HIGH
-    message: "Required GET endpoints and browser journeys remain pending runtime verification."
+  - severity: MEDIUM
+    message: "The appointment date-validation function passed isolated strict type-checking and six focused behavior checks; full project tests and browser journeys remain unverified."
+  - severity: MEDIUM
+    message: "Vercel reports successful deployment for commit 02920f4; required GET endpoints and browser journeys remain pending runtime verification."
 test_results:
   T001-T035:
     command: "npm test (latest local run)"
@@ -234,6 +232,12 @@ test_results:
     failed: 1
     skipped: 0
     failures: ["Project-local TypeScript executable is not installed."]
+  vercel_deployment:
+    command: "GitHub commit status for 02920f4"
+    passed: 1
+    failed: 0
+    skipped: 0
+    failures: []
   T004-T006:
     command: "Python sqlite3 in-memory migration/constraint check"
     passed: 8
