@@ -74,7 +74,8 @@ Catalog מאוחדים ל-Phase 2 אחד:
   רגרסיה לחודש מחוץ לטווח.
 - 45/45 בדיקות, Typecheck, Build, audit, Seed מבודד, בדיקות HTTP ומסעות דפדפן
   עברו; 14 צירופי מסך/רוחב נבדקו ב-375px וב-1280px.
-- Vercel דיווח `Deployment has completed` עבור `40b72f4`.
+- Vercel דיווח `Deployment has completed` עבור `5943e2c`; המימוש מוזג
+  ל-`main` ונדחף ל-GitHub.
 - התקנת התלויות המקומית בוצעה עם `npm ci --ignore-scripts`; Build Vercel
   הצליח. `npm ci` רגיל ב-Windows תלוי בכלי C++ לבניית `better-sqlite3`.
 

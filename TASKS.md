@@ -21,7 +21,7 @@
 | Hello Hono | הושלמה ונבדקה | Commit `cbadbc7` נשמר בשרשרת המקומית; ללא Push |
 | Replanning | הושלם ונבדק | Commits `fef7f93`, `d8fc699`; אושר Fast-forward מקומי ל-main |
 | Agents and Ailments | מומש ונבדק בעבר | Commit `457fc19`; 22 בדיקות אוטומטיות עברו לפני עבודת ה-MVP |
-| MVP (Therapies, Appointments, Dashboard) | הושלם ונבדק בענף `feature/mvp` | 45/45 בדיקות; Typecheck, Build, audit, Seed מבודד, HTTP, מסעות דפדפן ורספונסיביות עברו; Vercel הצליח עבור `40b72f4` |
+| MVP (Therapies, Appointments, Dashboard) | הושלם ונבדק ב-`feature/mvp` וב-`main` | 45/45 בדיקות; Typecheck, Build, audit, Seed מבודד, HTTP, מסעות דפדפן ורספונסיביות עברו; Vercel הצליח עבור `5943e2c` |
 | Skill ליצירת Feature Spec | נוצר ונבדק ידנית | `.claude/skills/feature-spec/SKILL.md`; dry-run מול מפרט הפגישות הקיים; הפעלה ישירה מתוך CLI של Claude Code לא אומתה |
 
 ## שלב 1 — הכנת סביבת העבודה
@@ -144,13 +144,13 @@
 | [x] | מימוש פגישות, ולידציה ואישור | מומש | T020-T026; POST/303/GET, ולידציה, escaping; תוקן פענוח רכיבי תאריך והוספה בדיקת חודש לא חוקי |
 | [x] | מימוש Dashboard וסטטוסי פגישות | מומש | T027-T030; מדדים, רשימות ופעולות סטטוס |
 | [x] | נגישות, logging ו-error pages | מומש | T031-T035; מעטפת RTL, focus, 404/500, ולוג ללא query/body |
-| [x] | אימות Build ופריסה חוזרים | הושלמה ונבדקה | Build/פריסת Vercel עבור `40b72f4` הסתיימו בהצלחה; Typecheck ו-Build מקומיים עברו |
+| [x] | אימות Build ופריסה חוזרים | הושלמה ונבדקה | Build/פריסת Vercel עבור `5943e2c` הסתיימו בהצלחה; Typecheck ו-Build מקומיים עברו |
 | [x] | הרצת האפליקציה ובדיקת המסכים והפעולות | הושלמה ונבדקה | שרת production מקומי על DB מבודד; נתיבים, נכסים, 404, יצירת פגישה, אישור ועדכון סטטוס נבדקו |
 | [x] | אבחון תקלה בניווט ובניית Vercel | הושלמה | קישורי המקור תואמים לנתיבים; Build Vercel הצביע על בעיית טיפוסים בשורת אימות התאריך, שתוקנה בקוד |
 | [x] | Spec Validation והשוואה בין מפרט למימוש | הושלמה ונבדקה | REQ-041–060, בדיקות חוזה, נתיבי HTTP ומסעות דפדפן אומתו |
 | [x] | תיקון פערים, הרצה חוזרת ועדכון Roadmap | הושלמה ונבדקה | פענוח תאריך תוקן; 45/45 בדיקות, Typecheck, Build ופריסת Vercel עברו |
 | [x] | עדכון README, Roadmap, TASKS ודוח אימות לפי ממצאי המימוש | הושלמה ונבדקה | המסמכים משקפים את תוצאות האימות העדכניות ואת הערת התאימות לסביבת Windows |
-| [ ] | עדכון הלוח והצגת תוצאות לאחר מיזוג | בתהליך | המשתמשת אישרה במפורש Push ומיזוג ל-main; בדיקות האימות הסתיימו, המיזוג מתבצע כעת |
+| [x] | עדכון הלוח והצגת תוצאות לאחר מיזוג | הושלמה ונבדקה | `feature/mvp` מוזג ב-fast-forward ל-`main` והענף החדש נדחף ל-GitHub |
 
 ## שלב 9 — Skill ליצירת Feature Spec
 
@@ -206,13 +206,13 @@
 |---|---|---|---|
 | [x] | בדיקת זמינות GitHub CLI | הושלמה ונבדקה | `gh` לא נמצא |
 | [x] | בדיקת גישה לריפו | הושלמה | `https://github.com/LeahAbrahams/my-agentclinic` נגיש |
-| [x] | Push של MVP ל-GitHub | הושלמה | ענף `feature/mvp`, Commit `6028409` |
-| [x] | Push של תיקון Vercel | הושלמה ונבדקה | Commit `02920f4` בענף `feature/mvp`; סטטוס Vercel עבור ה-Commit: success |
+| [x] | Push של MVP ל-GitHub | הושלמה ונבדקה | `feature/mvp` כולל Commit `5943e2c`; Vercel דיווח הצלחה |
+| [x] | Fast-forward מיזוג ל-main ו-Push | הושלמה ונבדקה | `main` קוּדם מ-`e17cc47` ל-`5943e2c` ונוצר ב-GitHub |
 
 ## תמונת מצב עדכנית
 
 - התקדמות קורס חובה עד MVP: Hello Hono, Replanning, Agents and Ailments ו-MVP הושלמו ונבדקו.
-- ענף `feature/mvp` נבדק ונפרס בהצלחה; Vercel דיווח `Deployment has completed` עבור `40b72f4`.
+- `feature/mvp` מוזג ל-`main` ונשלח ל-GitHub ב-`5943e2c`; Vercel דיווח `Deployment has completed` עבור אותו Commit.
 - בהרצה האחרונה: 45/45 בדיקות, `npm run typecheck`, `npm run build`, `npm audit` ו-Seed מול DB זמני עברו.
 - HTTP החזיר 200 עבור דף הבית, קטלוגים, טופס פגישה, Dashboard ונכסי CSS; נתיב לא קיים החזיר 404.
 - מסע דפדפן של יצירת פגישה, אישור, קריאה חוזרת מה-Dashboard ועדכון סטטוס עבר. 14 בדיקות מסכים ב-375px ו-1280px עברו ללא גלילה אופקית, עם `lang=he` ו-`dir=rtl`.

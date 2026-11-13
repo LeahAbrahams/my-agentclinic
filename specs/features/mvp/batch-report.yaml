@@ -249,7 +249,7 @@ test_results:
     skipped: 0
     failures: []
   vercel_deployment:
-    command: "GitHub commit status for 40b72f4"
+    command: "GitHub commit status for 5943e2c"
     passed: 1
     failed: 0
     skipped: 0

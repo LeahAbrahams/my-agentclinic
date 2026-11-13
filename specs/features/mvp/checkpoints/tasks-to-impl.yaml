@@ -716,4 +716,4 @@ latest_validation:
   http: "Pages and CSS returned 200; unknown route returned 404; invalid appointment date returned 400"
   browser: "Appointment creation, confirmation, dashboard persistence, and status update passed"
   responsive: "7 pages at 375px and 1280px; 14 checks passed with RTL and no horizontal overflow"
-  deployment: "Vercel status for commit 40b72f4: success — Deployment has completed"
+  deployment: "Vercel status for commit 5943e2c: success — Deployment has completed"
