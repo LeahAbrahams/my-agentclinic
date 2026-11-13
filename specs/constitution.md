@@ -2,7 +2,7 @@
 
 <!--
 Sync Impact Report
-Version change: none → 0.1.0 (טיוטת Constitution ראשונית; עדיין לא אושררה)
+Version change: 0.1.0 → 0.1.1 (בחירות טכנולוגיות Phase 2 והקשר הקורס תועדו; העקרונות לא השתנו)
 Modified principles: none
 Added sections: Migration Mode, Core Principles, Target Technology Stack,
 Additional Constraints, Development Workflow, Governance
@@ -18,8 +18,10 @@ Templates requiring updates:
 ⚠ Pending: generic skill files were not edited; they are outside this project.
 Follow-up TODOs:
 - Ratification date awaits user approval.
-- Confirm the course rubric's treatment of “Agents and Ailments”.
-- Select exact dependency versions and persistence/test tooling before scaffold.
+- The official course requires a fictional Agents/Ailments Phase 2; its scope
+  and relationship to the approved wellness mission are documented in the
+  feature specification. It contains no human health data.
+- Select and verify exact Phase 2 dependency versions before implementation.
 -->
 
 # Agent Clinic Constitution
@@ -67,19 +69,19 @@ Follow-up TODOs:
 |-----------|---------------|-------|
 | Node.js | 24.13.0 זמין בסביבה | יש לקבוע גרסת פרויקט נתמכת בשלד |
 | TypeScript | 6.0.3 זמין גלובלית | גרסת פרויקט תינעל בתלויות |
-| Framework | Hono — טרם נבחרה גרסה | נדרש ל-Hello Hono; יש לאמת ולנעול לפני התקנה |
-| Database | SQLite — גרסה/Driver טרם נקבעו | סכמות משתנות באמצעות מיגרציות SQL |
-| CSS | Pico CSS — טרם נבחרה גרסה | מקומי בלבד, ללא CDN |
+| Framework | Hono `4.13.18` | Hono server-rendered JSX; ננעל בפרויקט |
+| Database | SQLite עם `better-sqlite3` `13.1.1` | מיגרציות SQL גרסאיות; יאומת בהתקנה |
+| CSS | Pico CSS `2.1.1` | גרסת classless מקומית, ללא CDN |
 | JDK | לא רלוונטי | הפרויקט מתוכנן ל-Node.js |
 
 ## Additional Constraints
 
 - חומרי הקורס או מפרט מאושר גוברים על הנחות זמניות; סתירה תתועד ותועלה
   להכרעה לפני מימוש.
-- אין כרגע רובריקה המאשרת אם “Agents and Ailments” הוא דרישת קורס. לפי
-  העדפת המשתמשת לא יתווסף מעקב מחלות ללא ראיה לדרישה מפורשת.
-- ממשק, נתונים, אימות משתמשים ותכונות מעבר לתוכן כושר ומתכונים הם הצעות בלבד
-  עד שייכללו ב-Feature Spec מאושר.
+- חומרי הקורס הרשמיים דורשים Agents and Ailments כדוגמת תוכן בדיונית של
+  סוכני AI; אין בכך היתר לאסוף מחלות או נתוני בריאות של אנשים.
+- ממשק, נתונים, אימות משתמשים ותכונות מעבר לתוכן שהוגדר במפרט מאושר נשארים
+  מחוץ להיקף.
 - המעטפת ההומוריסטית תישאר מכבדת, לא רפואית ונגישה.
 
 ## Development Workflow
@@ -101,6 +103,6 @@ Follow-up TODOs:
 הסבר, חלופה פשוטה יותר שנשקלה ואישור לפני מימוש. `TASKS.md` הוא רישום התקדמות,
 בדיקות, החלטות, חסימות ואישורים.
 
-**Version**: 0.1.0 | **Ratified**: TODO(RATIFICATION_DATE): ממתין לאישור המשתמשת | **Last Amended**: 2026-11-12
+**Version**: 0.1.1 | **Ratified**: TODO(RATIFICATION_DATE): ממתין לאישור המשתמשת | **Last Amended**: 2026-11-13
 
 </div>

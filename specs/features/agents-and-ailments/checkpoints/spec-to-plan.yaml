@@ -1,0 +1,288 @@
+metadata:
+  generated: "2026-11-13"
+  source_spec: "specs/features/agents-and-ailments/spec.md and technical-requirements.md"
+  target_plan: "specs/features/agents-and-ailments/plan.md"
+summary:
+  total_requirements: 30
+  covered_requirements: 30
+  missing_requirements: 0
+  coverage_percentage: 100.0
+requirements:
+  - req_id: "REQ-011"
+    req_description: "Shared page layout"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "User Story 1 — Layout and home"
+      items: [{ item_id: "3.1", description: "Shared layout and assets" }]
+    notes: ""
+  - req_id: "REQ-012"
+    req_description: "Hebrew language and RTL"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "User Story 1 — Layout and home"
+      items: [{ item_id: "3.1", description: "Shared layout and assets" }]
+    notes: ""
+  - req_id: "REQ-013"
+    req_description: "Working navigation links"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "User Story 1 — Layout and home"
+      items:
+        - { item_id: "3.1", description: "Shared navigation" }
+        - { item_id: "3.2", description: "Home page" }
+    notes: ""
+  - req_id: "REQ-014"
+    req_description: "Semantic home page with Hello Hono"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "User Story 1 — Layout and home"
+      items: [{ item_id: "3.2", description: "Home page" }]
+    notes: ""
+  - req_id: "REQ-015"
+    req_description: "Agents list fields"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-4"
+      phase_name: "User Story 2 — Agents"
+      items:
+        - { item_id: "4.1", description: "Agent queries and types" }
+        - { item_id: "4.2", description: "Agents list and detail" }
+    notes: ""
+  - req_id: "REQ-016"
+    req_description: "Agent links open detail page"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-4"
+      phase_name: "User Story 2 — Agents"
+      items: [{ item_id: "4.2", description: "Agents list and detail" }]
+    notes: ""
+  - req_id: "REQ-017"
+    req_description: "Agent detail fields and linked ailments"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-4"
+      phase_name: "User Story 2 — Agents"
+      items:
+        - { item_id: "4.1", description: "Agent queries and types" }
+        - { item_id: "4.2", description: "Agents list and detail" }
+    notes: ""
+  - req_id: "REQ-018"
+    req_description: "Invalid or missing agent IDs return 404"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-4"
+      phase_name: "User Story 2 — Agents"
+      items:
+        - { item_id: "4.1", description: "Validate IDs in queries" }
+        - { item_id: "4.2", description: "Render not-found response" }
+    notes: ""
+  - req_id: "REQ-019"
+    req_description: "Ailments list with descriptions"
+    priority: "P2"
+    plan_mapping:
+      phase: "Phase-5"
+      phase_name: "User Story 3 — Ailments"
+      items: [{ item_id: "5.1", description: "Ailments catalog" }]
+    notes: ""
+  - req_id: "REQ-020"
+    req_description: "Many-to-many agent-ailment relation"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2"
+      phase_name: "Foundational database"
+      items: [{ item_id: "2.1", description: "SQLite schema" }]
+    notes: ""
+  - req_id: "REQ-021"
+    req_description: "At least five agent and ailment seeds"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2"
+      phase_name: "Foundational seed data"
+      items: [{ item_id: "2.2", description: "Seed data" }]
+    notes: ""
+  - req_id: "REQ-022"
+    req_description: "Idempotent seeds"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2"
+      phase_name: "Foundational seed data"
+      items:
+        - { item_id: "2.2", description: "Idempotent seed" }
+        - { item_id: "6.1", description: "Startup behavior" }
+    notes: ""
+  - req_id: "REQ-023"
+    req_description: "Responsive at narrow and desktop widths"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "User Story 1 — Layout and home"
+      items:
+        - { item_id: "3.1", description: "Responsive layout" }
+        - { item_id: "7.1", description: "Browser validation" }
+    notes: ""
+  - req_id: "REQ-024"
+    req_description: "Fictional technical data only"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2"
+      phase_name: "Foundational seed data"
+      items:
+        - { item_id: "2.2", description: "Fictional seed content" }
+        - { item_id: "7.1", description: "Review and verify scope" }
+    notes: ""
+  - req_id: "REQ-025"
+    req_description: "Empty states and 404 behavior"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "User Story 1 — Layout and home"
+      items:
+        - { item_id: "3.2", description: "Home page state" }
+        - { item_id: "4.2", description: "Agent not found" }
+        - { item_id: "5.1", description: "Empty ailment state" }
+    notes: ""
+  - req_id: "REQ-026"
+    req_description: "Strict TypeScript and independent Props types"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1"
+      phase_name: "Setup"
+      items: [{ item_id: "1.1", description: "TSX and dependencies" }]
+    notes: ""
+  - req_id: "REQ-027"
+    req_description: "Local Pico CSS and orange-black branding"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "User Story 1 — Layout and home"
+      items: [{ item_id: "3.1", description: "Layout, assets and brand styles" }]
+    notes: ""
+  - req_id: "REQ-028"
+    req_description: "SQLite persistence without ORM"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2"
+      phase_name: "Foundational database"
+      items:
+        - { item_id: "2.1", description: "SQLite bootstrap" }
+        - { item_id: "6.1", description: "Startup persistence" }
+    notes: ""
+  - req_id: "REQ-029"
+    req_description: "Ordered transactional idempotent migrations"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2"
+      phase_name: "Foundational database"
+      items: [{ item_id: "2.1", description: "Migration runner" }]
+    notes: ""
+  - req_id: "REQ-030"
+    req_description: "Seeds run after migrations"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2"
+      phase_name: "Foundational seed data"
+      items:
+        - { item_id: "2.2", description: "Seed command" }
+        - { item_id: "6.1", description: "Startup sequence" }
+    notes: ""
+  - req_id: "REQ-031"
+    req_description: "Database primary, unique and foreign keys"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2"
+      phase_name: "Foundational database"
+      items: [{ item_id: "2.1", description: "SQLite schema" }]
+    notes: ""
+  - req_id: "REQ-032"
+    req_description: "Parameterized SQL queries"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-4"
+      phase_name: "User Story 2 — Agents"
+      items:
+        - { item_id: "4.1", description: "Agent queries" }
+        - { item_id: "5.1", description: "Ailment query" }
+    notes: ""
+  - req_id: "REQ-033"
+    req_description: "Escape data as text in HTML"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-4"
+      phase_name: "User Story 2 — Agents"
+      items:
+        - { item_id: "4.2", description: "Hono JSX rendering" }
+        - { item_id: "5.1", description: "Ailments rendering" }
+    notes: ""
+  - req_id: "REQ-034"
+    req_description: "Automated tests for DB, routes, layout and assets"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-7"
+      phase_name: "Validation and polish"
+      items: [{ item_id: "7.1", description: "Automated and browser validation" }]
+    notes: ""
+  - req_id: "REQ-035"
+    req_description: "All project quality commands pass"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-7"
+      phase_name: "Validation and polish"
+      items: [{ item_id: "7.1", description: "Final quality gates" }]
+    notes: ""
+  - req_id: "REQ-036"
+    req_description: "Use existing Hono with server-rendered JSX"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1"
+      phase_name: "Setup"
+      items:
+        - { item_id: "1.1", description: "Hono JSX configuration" }
+        - { item_id: "3.1", description: "Layout components" }
+    notes: ""
+  - req_id: "REQ-037"
+    req_description: "Hebrew RTL and escaped output"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "User Story 1 — Layout and home"
+      items: [{ item_id: "3.1", description: "Locale and direction" }]
+    notes: ""
+  - req_id: "REQ-038"
+    req_description: "Local CSS and no external content dependency"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "User Story 1 — Layout and home"
+      items: [{ item_id: "3.1", description: "Local stylesheet and assets" }]
+    notes: ""
+  - req_id: "REQ-039"
+    req_description: "Exact direct dependency versions and lockfile"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1"
+      phase_name: "Setup"
+      items:
+        - { item_id: "1.1", description: "Pin project dependencies" }
+        - { item_id: "7.1", description: "Verify quality gates" }
+    notes: ""
+  - req_id: "REQ-040"
+    req_description: "Startup failure on database or migration error"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-6"
+      phase_name: "User Story 4 — Persistence on restart"
+      items:
+        - { item_id: "6.1", description: "Startup and migration error behavior" }
+        - { item_id: "7.1", description: "Verify startup failure behavior" }
+    notes: ""
+missing_requirements: []
+orphan_plan_items: []
+validation:
+  passed: true
+  errors: []
+  warnings:
+    - "Technical constraints are included in a separate spec section per the course and user request."

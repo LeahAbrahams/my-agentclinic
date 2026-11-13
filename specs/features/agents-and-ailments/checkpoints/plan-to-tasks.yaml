@@ -1,0 +1,148 @@
+metadata:
+  generated: "2026-11-13"
+  source_plan: "specs/features/agents-and-ailments/plan.md#Implementation-Steps"
+  target_tasks: "specs/features/agents-and-ailments/plan.md#Tasks"
+summary:
+  total_plan_items: 10
+  covered_plan_items: 10
+  missing_plan_items: 0
+  coverage_percentage: 100.0
+  total_tasks_generated: 28
+  orphan_tasks: 0
+phases:
+  - phase_id: "Phase-1"
+    phase_name: "Setup"
+    items:
+      - item_id: "1.1"
+        description: "TypeScript JSX and dependencies"
+        tasks:
+          - { task_id: "T001", description: "Pin feature dependencies and configure TSX" }
+          - { task_id: "T002", description: "Ignore local SQLite files" }
+        notes: ""
+  - phase_id: "Phase-2"
+    phase_name: "Foundational"
+    items:
+      - item_id: "2.1"
+        description: "SQLite schema and migrations"
+        tasks:
+          - { task_id: "T003", description: "Test migrations and foreign keys" }
+          - { task_id: "T004", description: "Open SQLite and enable foreign keys" }
+          - { task_id: "T005", description: "Implement migration runner" }
+          - { task_id: "T006", description: "Create SQL schema migrations" }
+        notes: ""
+      - item_id: "2.2"
+        description: "Fictional idempotent seed data"
+        tasks:
+          - { task_id: "T007", description: "Test seed counts and repeatability" }
+          - { task_id: "T008", description: "Create domain types and seed data" }
+          - { task_id: "T009", description: "Add repeatable seed command" }
+        notes: ""
+  - phase_id: "Phase-3"
+    phase_name: "User Story 1 — Layout and home"
+    items:
+      - item_id: "3.1"
+        description: "Shared responsive layout and local assets"
+        tasks:
+          - { task_id: "T010", description: "Test layout, RTL, navigation, and assets" }
+          - { task_id: "T011", description: "Create layout and component prop types" }
+          - { task_id: "T012", description: "Serve local CSS and brand styles" }
+        notes: ""
+      - item_id: "3.2"
+        description: "Home page and preserved greeting"
+        tasks:
+          - { task_id: "T013", description: "Test home page and navigation" }
+          - { task_id: "T014", description: "Render semantic home page" }
+        notes: ""
+  - phase_id: "Phase-4"
+    phase_name: "User Story 2 — Agents"
+    items:
+      - item_id: "4.1"
+        description: "Agent queries and types"
+        tasks:
+          - { task_id: "T015", description: "Test agent list, detail, 404 and relations" }
+          - { task_id: "T016", description: "Implement parameterized agent queries" }
+        notes: ""
+      - item_id: "4.2"
+        description: "Agents list and detail pages"
+        tasks:
+          - { task_id: "T017", description: "Create typed agent components" }
+          - { task_id: "T018", description: "Register agent routes" }
+        notes: ""
+  - phase_id: "Phase-5"
+    phase_name: "User Story 3 — Ailments"
+    items:
+      - item_id: "5.1"
+        description: "Ailments catalog"
+        tasks:
+          - { task_id: "T019", description: "Test catalog results" }
+          - { task_id: "T020", description: "Implement query and typed component" }
+          - { task_id: "T021", description: "Register ailments route" }
+        notes: ""
+  - phase_id: "Phase-6"
+    phase_name: "User Story 4 — Persistence on restart"
+    items:
+      - item_id: "6.1"
+        description: "Database and seed startup"
+        tasks:
+          - { task_id: "T022", description: "Test startup persistence" }
+          - { task_id: "T023", description: "Run migrations and seed before serving" }
+        notes: ""
+  - phase_id: "Phase-7"
+    phase_name: "Validation and polish"
+    items:
+      - item_id: "7.1"
+        description: "Tests, accessibility, review and documentation"
+        tasks:
+          - { task_id: "T024", description: "Test RTL, escaped output and 404" }
+          - { task_id: "T025", description: "Browser checks at 375px and 1280px" }
+          - { task_id: "T026", description: "Run quality gates and record evidence" }
+          - { task_id: "T027", description: "Review with subagents and fix verified issues" }
+          - { task_id: "T028", description: "Update project documentation and changelog" }
+        notes: ""
+missing_plan_items: []
+orphan_tasks: []
+upstream_trace:
+  - plan_item: "1.1"
+    source_requirements: ["REQ-026", "REQ-027", "REQ-035", "REQ-036", "REQ-039"]
+    tasks: ["T001", "T002"]
+    full_trace: "REQ-026,REQ-027,REQ-035,REQ-036,REQ-039 → Phase-1.1 → T001,T002"
+  - plan_item: "2.1"
+    source_requirements: ["REQ-028", "REQ-029", "REQ-031", "REQ-032"]
+    tasks: ["T003", "T004", "T005", "T006"]
+    full_trace: "REQ-028,REQ-029,REQ-031,REQ-032 → Phase-2.1 → T003-T006"
+  - plan_item: "2.2"
+    source_requirements: ["REQ-021", "REQ-022", "REQ-024", "REQ-030"]
+    tasks: ["T007", "T008", "T009"]
+    full_trace: "REQ-021,REQ-022,REQ-024,REQ-030 → Phase-2.2 → T007-T009"
+  - plan_item: "3.1"
+    source_requirements: ["REQ-011", "REQ-012", "REQ-013", "REQ-023", "REQ-027", "REQ-036", "REQ-037", "REQ-038"]
+    tasks: ["T010", "T011", "T012"]
+    full_trace: "REQ-011,REQ-012,REQ-013,REQ-023,REQ-027,REQ-036,REQ-037,REQ-038 → Phase-3.1 → T010-T012"
+  - plan_item: "3.2"
+    source_requirements: ["REQ-014", "REQ-025"]
+    tasks: ["T013", "T014"]
+    full_trace: "REQ-014,REQ-025 → Phase-3.2 → T013,T014"
+  - plan_item: "4.1"
+    source_requirements: ["REQ-015", "REQ-017", "REQ-018", "REQ-020", "REQ-024", "REQ-032", "REQ-033"]
+    tasks: ["T015", "T016"]
+    full_trace: "REQ-015,REQ-017,REQ-018,REQ-020,REQ-024,REQ-032,REQ-033 → Phase-4.1 → T015,T016"
+  - plan_item: "4.2"
+    source_requirements: ["REQ-015", "REQ-016", "REQ-017", "REQ-018", "REQ-020", "REQ-025", "REQ-036"]
+    tasks: ["T015", "T017", "T018"]
+    full_trace: "REQ-015,REQ-016,REQ-017,REQ-018,REQ-020,REQ-025,REQ-036 → Phase-4.2 → T015,T017,T018"
+  - plan_item: "5.1"
+    source_requirements: ["REQ-019", "REQ-021", "REQ-024", "REQ-025", "REQ-032", "REQ-033", "REQ-036"]
+    tasks: ["T019", "T020", "T021"]
+    full_trace: "REQ-019,REQ-021,REQ-024,REQ-025,REQ-032,REQ-033,REQ-036 → Phase-5.1 → T019-T021"
+  - plan_item: "6.1"
+    source_requirements: ["REQ-022", "REQ-028", "REQ-029", "REQ-030", "REQ-031", "REQ-040"]
+    tasks: ["T022", "T023"]
+    full_trace: "REQ-022,REQ-028,REQ-029,REQ-030,REQ-031,REQ-040 → Phase-6.1 → T022,T023"
+  - plan_item: "7.1"
+    source_requirements: ["REQ-023", "REQ-024", "REQ-026", "REQ-027", "REQ-032", "REQ-033", "REQ-034", "REQ-035", "REQ-036", "REQ-037", "REQ-038", "REQ-039", "REQ-040"]
+    tasks: ["T024", "T025", "T026", "T027", "T028"]
+    full_trace: "REQ-023,REQ-024,REQ-026,REQ-027,REQ-032,REQ-033,REQ-034,REQ-035,REQ-036,REQ-037,REQ-038,REQ-039,REQ-040 → Phase-7.1 → T024-T028"
+validation:
+  passed: true
+  errors: []
+  warnings: []

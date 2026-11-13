@@ -14,7 +14,7 @@
 
 ## שלב א — סביבת עבודה, Constitution ו-Hello Hono
 
-**סטטוס: הושלם מקומית; Merge ל-main טרם אושר**
+**סטטוס: הושלם ונבדק; אושר Fast-forward מקומי של `main` ל-`d8fc699`**
 
 - סביבת TypeScript Strict, Git ומסמכי היסוד הוקמו; חיבור Claude Code/GitHub
   נותר לא מאומת.
@@ -24,11 +24,11 @@
 - Vitest `4.1.12`, Typecheck, Build ו-`npm audit` (0 חולשות) אומתו ב-Branch
   `replanning`.
 - `npm ci`, בדיקות, Typecheck, Build, `npm start`, `npm run dev`, HTTP ופורט
-  תפוס אומתו; אין Push או Merge.
+  תפוס אומתו; אין Push. Branches נשמרו.
 
 ## שלב ב — Replanning ובדיקות
 
-**סטטוס: הושלם ונבדק מקומית ב-Branch `replanning`, Commit `fef7f93`**
+**סטטוס: הושלם, נבדק ומוזג מקומית; `fef7f93` ו-`d8fc699`**
 
 - המדיניות מגדירה Vitest, `npm test`, Typecheck ו-Build כחלק מכל שינוי.
 - מפרטי Hello Hono ומחסנית הטכנולוגיות עודכנו בהתאם למדיניות.
@@ -39,11 +39,11 @@
   אינה זמינה בסביבה.
 - דרישת הקורס לארגון מחדש של שלבי המוצר משתקפת בשלב ג.
 - `npm test` (2/2), Typecheck, Build ו-`npm audit` (0 חולשות) עברו.
-- לא בוצע Commit, Merge או Push; Commit של שלב זה ממתין לאישור מפורש.
+- Fast-forward ל-`main` בוצע רק לאחר אישור מפורש; אין Push או מחיקת Branch.
 
 ## שלב ג — Phase 2 מאוחדת: Layout, Agents ו-Ailments
 
-**סטטוס: ממתין למפרט ב-Branch `feature/agents-and-ailments`**
+**סטטוס: מפרט ותוכנית אושרו; Commit מקומי לפני תחילת המימוש ב-Branch `feature/agents-and-ailments`**
 
 על פי Roadmap הקורס, שלבי Base Layout, Agent List, Agent Detail ו-Ailments
 Catalog מאוחדים ל-Phase 2 אחד:
@@ -53,7 +53,9 @@ Catalog מאוחדים ל-Phase 2 אחד:
 - מסכי רשימה/פרטים וקישור בין סוכנים לאתגרים שלהם.
 - “Agents and Ailments” יוגדרו כתוכן בדיוני של סוכני AI; לא יאוחסנו מחלות או
   נתוני בריאות אישיים של אנשים.
-- היקף, סכימה, בחירות ממשק ותנאי קבלה ייקבעו במפרט לפני המימוש.
+- המפרט והתוכנית קיימים ב-`specs/features/agents-and-ailments/`; המשתמשת
+  אישרה Commit מקומי והמשך למימוש. המימוש יתחיל לאחר Commit המפרט.
+  `GET /` יהפוך לדף HTML וישמר את ברכת Hello Hono.
 
 ## שלב ד — יתרת MVP: Therapies, Appointments ו-Staff Dashboard
 
@@ -91,12 +93,14 @@ Catalog מאוחדים ל-Phase 2 אחד:
 ## מקורות והחלטות תכולה
 
 - מקור קורס: [מאגר הקבצים הרשמי של DeepLearning.AI](https://github.com/https-deeplearning-ai/sc-spec-driven-development-files),
-  בפרט `Video09_Project_Replanning` ו-`Video10_The_second_feature_phase`.
+  בפרט `Video09_Project_Replanning`, `Video10_The_second_feature_phase`
+  ו-`Video11_The_MVP`.
 - מקור הקורס מאשר את Agents & Ailments ואת איחוד שלבי Layout/Agent List/Detail/
   Ailments; התוכן ימומש רק כאתגרי AI בדיוניים, לא כמעקב רפואי.
 - הצהרת המשימה הקיימת, שאושרה קודם, מתמקדת ברווחה לאנשים עובדים. עדכון זה
   משמר אותה; Agents/Ailments ייחשבו לתוכן לימודי בדיוני בלבד, והקשר ביניהם
   יתועד במפרט לפני מימוש. לא יישמרו מחלות או נתוני בריאות של אנשים.
-- Driver ל-SQLite, כלי מיגרציות ותכולת MVP מדויקת ייקבעו במפרטים.
+- Driver ל-SQLite וגרסת Pico נבחרו במפרט Phase 2; תאימות ההתקנה עדיין
+  תיבדק לאחר אישור. תכולת MVP מדויקת תוגדר בשלב ד.
 
 </div>

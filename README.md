@@ -61,6 +61,10 @@ npm start
 - [מחסנית הטכנולוגיות וכללי הפיתוח](./specs/techstack.md)
 - [מפת הדרכים](./specs/roadmap.md)
 - [חוקת הפרויקט — טיוטה](./specs/constitution.md)
+- [מפרט Agents and Ailments](./specs/features/agents-and-ailments/spec.md)
+- [דרישות טכניות](./specs/features/agents-and-ailments/technical-requirements.md)
+- [תוכנית Agents and Ailments](./specs/features/agents-and-ailments/plan.md)
+- [תוכנית האימות](./specs/features/agents-and-ailments/validation.md)
 - [יומן שינויים](./CHANGELOG.md)
 - [Skill ליצירת CHANGELOG](./.claude/skills/changelog/SKILL.md)
 
