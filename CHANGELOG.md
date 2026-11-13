@@ -2,6 +2,9 @@
 
 ## 2026-11-13
 
+- feat: implement Agents and Ailments
+<!-- changelog-commit: 457fc196cbbac213abc970c828a18d7ede9ec29a -->
+
 - docs: specify Agents and Ailments feature
 <!-- changelog-commit: 4211417f71ab0e90ceb4277c022a2665c4055852 -->
 - docs: record completed Replanning stage
