@@ -56,10 +56,10 @@
 
 **משימות**
 
-- [ ] T001 [Plan:1.1] הוסף בדיקות מיגרציה וסכימת טבלאות ל-`src/db/migrate.test.ts`.
-- [ ] T002 [Plan:1.1] הוסף בדיקות FK ואידמפוטנטיות seed עבור קשרי
+- [x] T001 [Plan:1.1] הוסף בדיקות מיגרציה וסכימת טבלאות ל-`src/db/migrate.test.ts`.
+- [x] T002 [Plan:1.1] הוסף בדיקות FK ואידמפוטנטיות seed עבור קשרי
   therapies ל-`src/db/seed.test.ts`.
-- [ ] T003 [Plan:1.1] הוסף בדיקות שאילתות/CRUD לפגישות ב-`src/db/queries.test.ts`.
+- [x] T003 [Plan:1.1] הוסף בדיקות שאילתות/CRUD לפגישות ב-`src/db/queries.test.ts`.
 
 #### Step 1.2 — מיגרציות
 
@@ -67,11 +67,11 @@
 
 **משימות**
 
-- [ ] T004 [Plan:1.2] צור `src/db/migrations/004_create_therapies.sql`
+- [x] T004 [Plan:1.2] צור `src/db/migrations/004_create_therapies.sql`
   עם מפתח, שם ייחודי ותיאור.
-- [ ] T005 [Plan:1.2] צור `src/db/migrations/005_create_ailment_therapies.sql`
+- [x] T005 [Plan:1.2] צור `src/db/migrations/005_create_ailment_therapies.sql`
   עם FK ומפתח מורכב.
-- [ ] T006 [Plan:1.2] צור `src/db/migrations/006_create_appointments.sql`
+- [x] T006 [Plan:1.2] צור `src/db/migrations/006_create_appointments.sql`
   עם FK לסוכן, נותן שירות, מועד, סטטוס מאומת וזמן יצירה.
 
 #### Step 1.3 — נתוני דוגמה ושכבת נתונים
@@ -80,15 +80,15 @@
 
 **משימות**
 
-- [ ] T007 [Plan:1.3] הגדר טיפוסי `Therapy` ו-`Appointment` ב-`src/types/`.
-- [ ] T008 [Plan:1.3] הוסף 5 פעולות טכניות בדיוניות ב-`src/db/seeds/therapies.ts`.
-- [ ] T009 [Plan:1.3] הוסף קשרי תקלה-פעולה ב-`src/db/seeds/ailment-therapies.ts`.
-- [ ] T010 [Plan:1.3] הוסף פעולות, קשרים ופגישת דוגמה ל-`src/db/seed-data.ts`;
+- [x] T007 [Plan:1.3] הגדר טיפוסי `Therapy` ו-`Appointment` ב-`src/types/`.
+- [x] T008 [Plan:1.3] הוסף 5 פעולות טכניות בדיוניות ב-`src/db/seeds/therapies.ts`.
+- [x] T009 [Plan:1.3] הוסף קשרי תקלה-פעולה ב-`src/db/seeds/ailment-therapies.ts`.
+- [x] T010 [Plan:1.3] הוסף פעולות, קשרים ופגישת דוגמה ל-`src/db/seed-data.ts`;
   השאר seed אידמפוטנטי וטרנזקציוני.
-- [ ] T011 [Plan:1.3] הוסף שאילתות פעולות סיוע ותקלה ב-`src/db/queries.ts`.
-- [ ] T012 [Plan:1.3] הוסף יצירה, קריאה ועדכון סטטוס פגישה ב-`src/db/queries.ts`;
+- [x] T011 [Plan:1.3] הוסף שאילתות פעולות סיוע ותקלה ב-`src/db/queries.ts`.
+- [x] T012 [Plan:1.3] הוסף יצירה, קריאה ועדכון סטטוס פגישה ב-`src/db/queries.ts`;
   השתמש ב-prepared statements וסטטוסים מפורשים.
-- [ ] T013 [Plan:1.3] הוסף שאילתות Dashboard ונתוני פגישה ב-`src/db/queries.ts`.
+- [x] T013 [Plan:1.3] הוסף שאילתות Dashboard ונתוני פגישה ב-`src/db/queries.ts`.
 
 ### Phase 2 — קטלוג פעולות תמיכה
 
@@ -98,14 +98,14 @@
 
 **משימות**
 
-- [ ] T014 [Plan:2.1] הוסף Props עצמאיים ל-`src/types/components.ts`.
-- [ ] T015 [Plan:2.1] צור `src/components/TherapiesList.tsx` לרשימה ולמצב ריק.
-- [ ] T016 [Plan:2.1] עדכן `src/components/AilmentsList.tsx` להצגת פעולות
+- [x] T014 [Plan:2.1] הוסף Props עצמאיים ל-`src/types/components.ts`.
+- [x] T015 [Plan:2.1] צור `src/components/TherapiesList.tsx` לרשימה ולמצב ריק.
+- [x] T016 [Plan:2.1] עדכן `src/components/AilmentsList.tsx` להצגת פעולות
   תמיכה מקושרות.
-- [ ] T017 [Plan:2.1] צור `src/routes/therapies.ts` ונתיב `GET /therapies`.
-- [ ] T018 [Plan:2.1] רשום נתיב וקישור ניווט לקטלוג הטיפולים ב-`src/app.ts`
+- [x] T017 [Plan:2.1] צור `src/routes/therapies.ts` ונתיב `GET /therapies`.
+- [x] T018 [Plan:2.1] רשום נתיב וקישור ניווט לקטלוג הטיפולים ב-`src/app.ts`
   וב-`src/components/Layout.tsx`.
-- [ ] T019 [Plan:2.1] הוסף בדיקות נתיב/רשימה/מצב ריק/קישורים ב-
+- [x] T019 [Plan:2.1] הוסף בדיקות נתיב/רשימה/מצב ריק/קישורים ב-
   `src/routes/therapies.test.ts` וב-`src/routes/ailments.test.ts`.
 
 ### Phase 3 — בקשת פגישת שירות
@@ -116,17 +116,17 @@
 
 **משימות**
 
-- [ ] T020 [Plan:3.1] צור `src/components/AppointmentForm.tsx` עם שדות בעברית,
+- [x] T020 [Plan:3.1] צור `src/components/AppointmentForm.tsx` עם שדות בעברית,
   `required`, ערכים שנשמרים אחרי שגיאה והצגת הודעה ברורה.
-- [ ] T021 [Plan:3.1] צור `src/components/AppointmentConfirmation.tsx`
+- [x] T021 [Plan:3.1] צור `src/components/AppointmentConfirmation.tsx`
   המציג פרטי פגישה כטקסט מקודד.
-- [ ] T022 [Plan:3.1] הוסף Props ציבוריים עצמאיים ב-`src/types/components.ts`.
-- [ ] T023 [Plan:3.1] צור `src/routes/appointments.ts`: טופס GET מזוהה-סוכן,
+- [x] T022 [Plan:3.1] הוסף Props ציבוריים עצמאיים ב-`src/types/components.ts`.
+- [x] T023 [Plan:3.1] צור `src/routes/appointments.ts`: טופס GET מזוהה-סוכן,
   POST מאומת, יצירה והפניית 302, ו-GET אישור.
-- [ ] T024 [Plan:3.1] הוסף קישור לקביעת פגישה לפרופיל ב-
+- [x] T024 [Plan:3.1] הוסף קישור לקביעת פגישה לפרופיל ב-
   `src/components/AgentDetail.tsx`.
-- [ ] T025 [Plan:3.1] רשום נתיבי פגישות ב-`src/app.ts`.
-- [ ] T026 [Plan:3.1] בדוק POST תקין/חסר/מזהה לא קיים/מועד לא תקין ו-escaping
+- [x] T025 [Plan:3.1] רשום נתיבי פגישות ב-`src/app.ts`.
+- [x] T026 [Plan:3.1] בדוק POST תקין/חסר/מזהה לא קיים/מועד לא תקין ו-escaping
   ב-`src/routes/appointments.test.ts`.
 
 ### Phase 4 — Dashboard לצוות הדגמה
@@ -137,12 +137,12 @@
 
 **משימות**
 
-- [ ] T027 [Plan:4.1] צור `src/components/Dashboard.tsx` עם מדדים, טבלאות
+- [x] T027 [Plan:4.1] צור `src/components/Dashboard.tsx` עם מדדים, טבלאות
   ומצב ריק.
-- [ ] T028 [Plan:4.1] צור `src/routes/dashboard.ts` לקריאה ולעדכון סטטוס פגישה.
-- [ ] T029 [Plan:4.1] רשום נתיב וקישור Dashboard ב-`src/app.ts` וב-Layout;
+- [x] T028 [Plan:4.1] צור `src/routes/dashboard.ts` לקריאה ולעדכון סטטוס פגישה.
+- [x] T029 [Plan:4.1] רשום נתיב וקישור Dashboard ב-`src/app.ts` וב-Layout;
   הבהר כי הוא מיועד להדגמה מקומית וללא auth.
-- [ ] T030 [Plan:4.1] הוסף בדיקות ספירות, רשימות, שינוי סטטוס, ערכים שגויים
+- [x] T030 [Plan:4.1] הוסף בדיקות ספירות, רשימות, שינוי סטטוס, ערכים שגויים
   ו-Dashboard ריק ל-`src/routes/dashboard.test.ts`.
 
 ### Phase 5 — נגישות והקשחה
@@ -153,12 +153,12 @@
 
 **משימות**
 
-- [ ] T031 [Plan:5.1] צור `src/components/ServerErrorPage.tsx` לשגיאה כללית.
-- [ ] T032 [Plan:5.1] הוסף `NotFound` ו-`onError` ב-`src/app.ts`, תוך רישום
+- [x] T031 [Plan:5.1] צור `src/components/ServerErrorPage.tsx` לשגיאה כללית.
+- [x] T032 [Plan:5.1] הוסף `NotFound` ו-`onError` ב-`src/app.ts`, תוך רישום
   שגיאה פנימי והסתרת פרטי מימוש מהתגובה.
-- [ ] T033 [Plan:5.1] צור `src/middleware/logger.ts` לרישום method/path/status/
+- [x] T033 [Plan:5.1] צור `src/middleware/logger.ts` לרישום method/path/status/
   משך בלי body או query values.
-- [ ] T034 [Plan:5.1] רשום middleware לפני הנתיבים והוסף בדיקות 404/500 ולוג
+- [x] T034 [Plan:5.1] רשום middleware לפני הנתיבים והוסף בדיקות 404/500 ולוג
   ב-`src/app.test.ts`.
 
 #### Step 5.2 — בדיקות UX, שילוב ותיעוד
@@ -167,14 +167,20 @@
 
 **משימות**
 
-- [ ] T035 [Plan:5.2] בדוק ועדכן `src/static/styles.css` לטבלאות, טפסים,
+- [x] T035 [Plan:5.2] בדוק ועדכן `src/static/styles.css` לטבלאות, טפסים,
   focus גלוי ופריסה ב-375px/1280px.
-- [ ] T036 [Plan:5.2] הרץ `npm ci`, `npm test`, `npm run typecheck`,
+- [x] T036 [Plan:5.2] הרץ `npm ci`, `npm test`, `npm run typecheck`,
   `npm run build`, `npm audit` ו-`npm run seed`; תעד exit codes ותוצאות.
-- [ ] T037 [Plan:5.2] הפעל שרת production ובדוק ב-HTTP את כל דפי MVP,
+- [x] T037 [Plan:5.2] הפעל שרת production ובדוק ב-HTTP את כל דפי MVP,
   POST/redirect/status, נכסים, 404 ושגיאות; בדוק בדפדפן מסעות שימוש ורוחבים.
-- [ ] T038 [Plan:5.2] עדכן `README.md`, `specs/roadmap.md`, `TASKS.md` ואת
+- [x] T038 [Plan:5.2] עדכן `README.md`, `specs/roadmap.md`, `TASKS.md` ואת
   `runtime-validation-report.md` לפי ראיות; אין לסמן בדיקות שלא הורצו.
+
+**תוצאות T036–T038:** `npm ci --ignore-scripts` הצליח; `npm test` עבר 45/45,
+Typecheck, Build, audit (0 חולשות), מיגרציות ו-seed מבודד עברו. בדיקות HTTP,
+יצירת פגישה, אישור, עדכון סטטוס ו-14 בדיקות דפדפן RTL/רספונסיביות עברו.
+פריסת Vercel עבור `40b72f4` הושלמה בהצלחה. ב-Windows, `npm ci` רגיל דורש
+כלי C++ לבניית `better-sqlite3`.
 
 ## אסטרטגיית בדיקות
 
