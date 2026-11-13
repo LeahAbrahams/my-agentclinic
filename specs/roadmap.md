@@ -43,7 +43,7 @@
 
 ## שלב ג — Phase 2 מאוחדת: Layout, Agents ו-Ailments
 
-**סטטוס: מפרט ותוכנית אושרו; Commit מקומי לפני תחילת המימוש ב-Branch `feature/agents-and-ailments`**
+**סטטוס: מפרט ותוכנית נשמרו ב-Commit מקומי `4211417`; המימוש החל ב-Branch `feature/agents-and-ailments`**
 
 על פי Roadmap הקורס, שלבי Base Layout, Agent List, Agent Detail ו-Ailments
 Catalog מאוחדים ל-Phase 2 אחד:
@@ -53,8 +53,8 @@ Catalog מאוחדים ל-Phase 2 אחד:
 - מסכי רשימה/פרטים וקישור בין סוכנים לאתגרים שלהם.
 - “Agents and Ailments” יוגדרו כתוכן בדיוני של סוכני AI; לא יאוחסנו מחלות או
   נתוני בריאות אישיים של אנשים.
-- המפרט והתוכנית קיימים ב-`specs/features/agents-and-ailments/`; המשתמשת
-  אישרה Commit מקומי והמשך למימוש. המימוש יתחיל לאחר Commit המפרט.
+- המפרט והתוכנית קיימים ב-`specs/features/agents-and-ailments/`; Commit
+  מקומי `4211417` אושר ונוצר. המימוש מתקדם אחריו.
   `GET /` יהפוך לדף HTML וישמר את ברכת Hello Hono.
 
 ## שלב ד — יתרת MVP: Therapies, Appointments ו-Staff Dashboard

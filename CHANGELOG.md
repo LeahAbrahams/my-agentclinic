@@ -2,6 +2,11 @@
 
 ## 2026-11-13
 
+- docs: specify Agents and Ailments feature
+<!-- changelog-commit: 4211417f71ab0e90ceb4277c022a2665c4055852 -->
+- docs: record completed Replanning stage
+<!-- changelog-commit: d8fc699f789bf5d026bb119147716f4c6ae89069 -->
+
 - test: add Vitest and Replanning validation
 <!-- changelog-commit: fef7f93f07e25a733ef20ba97328e9ae030f6806 -->
 

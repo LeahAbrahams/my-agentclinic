@@ -2,4 +2,7 @@ node_modules/
 dist/
 .env
 .env.*
+agentclinic.db
+agentclinic.db-shm
+agentclinic.db-wal
 npm-debug.log*

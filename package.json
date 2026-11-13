@@ -12,9 +12,11 @@
     "typecheck": "tsc --noEmit",
     "build": "tsc",
     "test": "vitest run src",
+    "seed": "tsx src/db/seed.ts",
     "start": "node dist/index.js"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "9.6.0",
     "@types/node": "24.19.2",
     "tsx": "4.23.15",
     "typescript": "6.0.3",
@@ -22,6 +24,8 @@
   },
   "dependencies": {
     "@hono/node-server": "2.1.8",
+    "@picocss/pico": "2.1.1",
+    "better-sqlite3": "13.1.1",
     "hono": "4.13.18"
   }
 }
