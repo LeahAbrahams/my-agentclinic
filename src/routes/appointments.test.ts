@@ -69,6 +69,11 @@ describe("appointment booking", () => {
       scheduledAt: "2031-02-31T12:30",
     },
     {
+      agentId: "agent-orbit",
+      providerName: "צוות בדיקה",
+      scheduledAt: "2031-13-10T12:30",
+    },
+    {
       agentId: "missing-agent",
       providerName: "צוות בדיקה",
       scheduledAt: "2031-02-10T12:30",

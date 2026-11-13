@@ -20,10 +20,10 @@ completed_tasks:
   - T038
 blocked_tasks:
   - task_id: "T036"
-    reason: "npm ci and project quality gates are blocked by missing native build tools and incomplete node_modules."
+    reason: "The project-wide test and build gates need to be rerun against the latest source."
     required_task_ids: []
   - task_id: "T037"
-    reason: "Production HTTP and browser validation require a successful clean dependency installation."
+    reason: "Production HTTP and browser validation depend on a successful deployment build."
     required_task_ids: ["T036"]
 files_changed:
   T001-T003:
@@ -208,21 +208,32 @@ traceability:
     status: "partial"
 protocol_violation: false
 errors:
-  - "npm test exited 1 before loading tests: node_modules/vitest/vitest.mjs is missing."
-  - "npm run typecheck exited 1 before checking project types: node_modules/typescript/bin/tsc is missing."
-  - "Global TypeScript 6.0.3 could not type-check because @types/node is unavailable."
+  - "Latest local npm test/build runs cannot load the project executables because project dependencies are not installed."
+  - "The Vercel build log supplied on 2026-11-13 reported TS18048 in appointment date validation; the implementation was corrected and needs a new deployment build."
 warnings:
   - severity: HIGH
-    message: "T001-T035 have implementation and tests written but remain in progress until clean install, tests, typecheck, build, and runtime verification succeed."
+    message: "The latest appointment date-validation function passed isolated strict type-checking and six focused behavior checks; the full project suite and deployment build remain to be run."
   - severity: HIGH
-    message: "Required GET endpoints remain pending runtime verification; no server or browser journey was run."
+    message: "Required GET endpoints and browser journeys remain pending runtime verification."
 test_results:
   T001-T035:
-    command: "npm test"
+    command: "npm test (latest local run)"
     passed: 0
     failed: 1
     skipped: 0
     failures: ["Vitest executable could not load because node_modules/vitest/vitest.mjs is missing; no test cases ran."]
+  T026-date-validation:
+    command: "Global TypeScript compiler on extracted function; focused Node behavior checks"
+    passed: 6
+    failed: 0
+    skipped: 0
+    failures: []
+  build:
+    command: "npm run build (latest local run)"
+    passed: 0
+    failed: 1
+    skipped: 0
+    failures: ["Project-local TypeScript executable is not installed."]
   T004-T006:
     command: "Python sqlite3 in-memory migration/constraint check"
     passed: 8

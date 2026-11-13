@@ -16,9 +16,11 @@ function isValidLocalDateTime(value: string): boolean {
     return false;
   }
   const date = new Date(value);
-  const [year, month, day, hour, minute] = value
-    .split(/[-T:]/)
-    .map(Number);
+  const year = Number(value.slice(0, 4));
+  const month = Number(value.slice(5, 7));
+  const day = Number(value.slice(8, 10));
+  const hour = Number(value.slice(11, 13));
+  const minute = Number(value.slice(14, 16));
   return (
     Number.isFinite(date.getTime()) &&
     date.getFullYear() === year &&

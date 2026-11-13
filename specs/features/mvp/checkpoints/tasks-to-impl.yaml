@@ -623,7 +623,7 @@ tasks:
         failed: 2
         skipped: 0
         failures: ["Clean installation not retried; npm test and npm run typecheck cannot resolve missing project packages."]
-      notes: "Await Visual Studio 2022 Build Tools with MSVC v143 and Windows SDK."
+      notes: "Run the project-wide test, typecheck, build, seed, and audit gates against the latest source."
     upstream_trace:
       plan_item: "5.2"
       requirements: ["REQ-060"]
@@ -633,7 +633,7 @@ tasks:
     status: "blocked"
     verification:
       build_passed: false
-      notes: "No server started; HTTP/browser checks require successful npm ci."
+      notes: "Run production HTTP and browser journeys after the latest deployment build succeeds."
     upstream_trace:
       plan_item: "5.2"
       requirements: ["REQ-041-REQ-060"]
@@ -648,13 +648,13 @@ tasks:
           description: "Updated MVP description, routes, and explicit verification state."
         - file: "specs/roadmap.md"
           change_type: "modified"
-          description: "Recorded MVP implementation progress and blockers."
+          description: "Recorded MVP implementation progress and validation results."
         - file: "TASKS.md"
           change_type: "modified"
           description: "Recorded task state and actual command results."
         - file: "runtime-validation-report.md"
           change_type: "modified"
-          description: "Separated current partial checks from historical results."
+          description: "Recorded the supplied Vercel diagnostic, its code fix, and focused checks."
     verification:
       build_passed: false
       test_results:
@@ -663,7 +663,7 @@ tasks:
         failed: 0
         skipped: 0
         failures: []
-      notes: "Documentation accurately states that clean install and application gates remain open."
+      notes: "Documentation records actual command and focused-check results."
     upstream_trace:
       plan_item: "5.2"
       requirements: ["REQ-060"]
@@ -702,9 +702,8 @@ traceability_chain:
 validation:
   passed: false
   errors:
-    - "Automated tests, project typecheck, build, seed, audit, HTTP, and browser validation are not complete."
+    - "Project-wide tests, typecheck, build, seed, audit, HTTP, and browser validation must be rerun on the latest source."
   warnings:
     - "Global TypeScript transpile parsed 49 .ts/.tsx files with zero syntax diagnostics; this does not type-check dependencies."
   blocking_issues:
-    - "npm ci is blocked by missing Windows MSVC/SDK for better-sqlite3."
-    - "Required endpoint probes are pending until the server can run."
+    - "Required endpoint probes are pending a successful deployment build."

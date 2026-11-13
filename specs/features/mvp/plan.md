@@ -22,9 +22,8 @@
   CSS מקומי. אין Client JS או CDN.
 - **Tests**: Vitest `4.1.12`; DB זמני/בזיכרון ובדיקות Hono דרך
   `app.request`; בדיקת HTTP ו-browser smoke לאחר הפעלת שרת production.
-- **מגבלת אימות נוכחית**: `npm ci` נכשל ב-Windows בעת `node-gyp` של
-  `better-sqlite3`. התקנת dependencies ובדיקות הריצה ממתינות לכלי MSVC
-  ו-Windows SDK; אין לשנות גרסאות/Lockfile כדי לעקוף זאת.
+- **פריסה**: Build של Vercel מספק שער TypeScript ובדיקת פריסה עבור ענף
+  `feature/mvp`; יש לוודא Build מוצלח לאחר כל תיקון.
 
 ## בדיקת התאמה לחוקה
 
@@ -189,8 +188,8 @@
 - **נתוני בדיקה**: seed דטרמיניסטי לכל test DB; להפעיל cleanup/close בסיום.
 - **תנאי PASS**: כל דרישות 041–060 מכוסות; בדיקות, typecheck, build,
   audit ו-HTTP מסתיימים בקוד 0; אין גלילה אופקית או תוכן שגיאה חשוף.
-- **מגבלה נוכחית**: אין Docker; הוא אינו דרוש. `npm ci` חסום כרגע בכלי
-  Windows C++/SDK החסרים; עד להתקנתם בדיקות runtime נשארות UNVERIFIED.
+- **סביבה**: אין צורך ב-Docker עבור SQLite המוטמע. יש להריץ את שערי
+  הבדיקות וה-runtime בסביבה שבה התלויות זמינות.
 
 ## מבנה פרויקט יעד
 
