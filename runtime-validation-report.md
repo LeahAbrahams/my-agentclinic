@@ -46,6 +46,20 @@
   registry keys and SDK directories are also absent.
 - Inspection of the installed node-gyp source showed supported Visual Studio
   years `[2019, 2022]`; Visual Studio 2026 is not recognized.
+- A later attempt to prepare the Visual Studio 2022 Build Tools installer
+  stopped with an error that
+  `C:\Program Files (x86)\Microsoft Visual Studio\Installer` is locked by
+  another process. The error dialog runs at a higher integrity level than the
+  UI automation tool, so it cannot be dismissed automatically. Build Tools
+  installation has not started/completed; manual dismissal of that dialog and
+  release of the installer lock are required before trying again.
+- On 2026-11-13 at 11:18, the authenticated Visual Studio Build Tools 2022
+  installer reached its workload-selection screen. The **Desktop development
+  with C++** workload is not selected yet. The UI automation tool cannot click
+  this elevated window, so the user must select that workload, ensure MSVC
+  v143 x64/x86 and a Windows 10/11 SDK are selected, and start installation.
+  Until those components are installed and detected, `npm ci` and project
+  runtime validation remain blocked.
 - `node_modules` now contains only `.bin` shims; it has no Vitest, TypeScript,
   `better-sqlite3`, or `better_sqlite3.node`. The ignored `agentclinic.db` was
   preserved.
@@ -96,3 +110,28 @@ Do not remove or modify Visual Studio 2026. After installation, verify the
 compiler and SDK are detected, then rerun `npm ci` and the validation commands
 in the approved feature plan. No dependency or lockfile changes are indicated
 by the current evidence.
+
+## עדכון עבודה בענף `feature/mvp`
+
+המימוש בענף ה-MVP נכתב, אך **אינו מאומת במלואו**. לא בוצעו שינויי
+`package.json` או `package-lock.json`, ולא הופעל `npm ci`.
+
+| פקודה/בדיקה | תוצאה בסבב זה | פירוט |
+|---|---|---|
+| `npm test` | חסום, קוד 1 | `node_modules/vitest/vitest.mjs` חסר |
+| `npm run typecheck` | חסום, קוד 1 | `node_modules/typescript/bin/tsc` חסר |
+| TypeScript גלובלי `6.0.3` | חסום, קוד 2 | הפרויקט מפנה ל-`@types/node`, שחסר |
+| בדיקת תחביר TypeScript | עבר חלקית | `transpileModule` של TypeScript גלובלי עבר על 49 קובצי `.ts/.tsx` ללא שגיאות תחביר; זו אינה בדיקת טיפוסים |
+| `git diff --check` | עבר | לא נמצאו שגיאות whitespace ב-diff |
+| Python `sqlite3` — שש מיגרציות | עבר | כל הטבלאות נוצרו; בדיקות ידניות אישרו דחיית FK לא קיים וסטטוס לא חוקי |
+| Build, seed, audit, HTTP, browser | לא הורצו | תלויים בהתקנת התלויות; אין טענת הצלחה |
+
+נוספו מיגרציות 004–006 עבור פעולות תמיכה, קשרים לתקלות ופגישות;
+טיפוסים, seeds ושאילתות; נתיבי `/therapies`, `/appointments/*` ו-`/dashboard`;
+רכיבי UI, לוג בקשות וטיפול ב-404/500. נוספו בדיקות Vitest למסד הנתונים,
+נתיבים ושגיאות, אך הן לא הורצו. השרת לא הופעל ואין ראיות HTTP או דפדפן
+למימוש החדש.
+
+**מסקנה:** ההתקנה הנקייה ושערי האימות נשארים חסומים. תוצאת SQLite העצמאית
+מאמתת את תחביר הסכימה ואילוציה בלבד; היא אינה מאשרת את TypeScript, seed,
+בדיקות היישום או התנהגות HTTP.

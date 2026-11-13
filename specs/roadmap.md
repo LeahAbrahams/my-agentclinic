@@ -43,7 +43,7 @@
 
 ## שלב ג — Phase 2 מאוחדת: Layout, Agents ו-Ailments
 
-**סטטוס: מפרט ותוכנית נשמרו ב-Commit מקומי `4211417`; המימוש החל ב-Branch `feature/agents-and-ailments`**
+**סטטוס: מומש בענף `feature/agents-and-ailments` ובוצע Fast-forward מקומי ל-main; אימות התקנה נקייה חסום**
 
 על פי Roadmap הקורס, שלבי Base Layout, Agent List, Agent Detail ו-Ailments
 Catalog מאוחדים ל-Phase 2 אחד:
@@ -53,22 +53,32 @@ Catalog מאוחדים ל-Phase 2 אחד:
 - מסכי רשימה/פרטים וקישור בין סוכנים לאתגרים שלהם.
 - “Agents and Ailments” יוגדרו כתוכן בדיוני של סוכני AI; לא יאוחסנו מחלות או
   נתוני בריאות אישיים של אנשים.
-- המפרט והתוכנית קיימים ב-`specs/features/agents-and-ailments/`; Commit
-  מקומי `4211417` אושר ונוצר. המימוש מתקדם אחריו.
+- המפרט והתוכנית קיימים ב-`specs/features/agents-and-ailments/`; Commits
+  מקומיים `4211417` ו-`457fc19` קיימים. Fast-forward מקומי ל-main בוצע
+  באישור הרחב של המשתמשת. אין Push.
   `GET /` יהפוך לדף HTML וישמר את ברכת Hello Hono.
 
 ## שלב ד — יתרת MVP: Therapies, Appointments ו-Staff Dashboard
 
-**סטטוס: ממתין למפרט MVP**
+**סטטוס: המפרט הושלם והמימוש נכתב בענף `feature/mvp`; בדיקות הפרויקט ואימות runtime חסומים**
 
-- קטלוג Therapies וקישור לאתגרים בדיוניים.
-- הזמנת Appointments, אימות טופס ואישור.
-- Staff Dashboard וסיכומי פעילות, לפי המפרט והרובריקה.
-- נתוני דוגמה, בדיקות, Spec Validation והשוואה בין המפרט למימוש.
+- מפרט: `specs/features/mvp/requirements.md`; 20 דרישות חדשות `REQ-041`–`REQ-060`.
+- תוכנית: `specs/features/mvp/plan.md`; שמונה פריטי תוכנית ו-38 משימות.
+- אימות: `specs/features/mvp/validation.md`; כולל DB, routes, HTTP, דפדפן,
+  375/1280, logging, 404/500 ו-scorecard.
+- התוכן יתאר שירותים טכניים בדיוניים לסוכני AI; אין בני אדם כמטופלים או
+  מידע רפואי, ואין אימות משתמשים/הרשאות ב-Dashboard המקומי.
+- מיגרציות, שכבת נתונים, מסכים, נתיבים, בדיקות, טיפול בשגיאות ו-CSS נכתבו
+  לפי התוכנית. בדיקות אוטומטיות לא הופעלו בהצלחה כי Vitest, TypeScript
+  ותלויות הפרויקט חסרים ב-`node_modules`.
+- בדיקת SQLite חיצונית אישרה את תחביר שש המיגרציות ודחיית FK/סטטוס פסולים;
+  זו אינה תחליף ל-TypeScript, לבדיקות, לשרת או לדפדפן.
+- `npm ci`, בדיקות מלאות ואימות runtime נשארים חסומים עד להתקנת רכיבי MSVC
+  ו-Windows SDK הנדרשים ל-`better-sqlite3`; אין לשנות תלויות כדי לעקוף זאת.
 
 ## שלב ה — Skills ו-Context7
 
-**סטטוס: ממתין**
+**סטטוס: ממתין לאחר MVP**
 
 - יצירה ובדיקה מעשית של Skill ל-Feature Spec.
 - בדיקת Context7; דרישת הקורס היא CLI ו-Skills, לא MCP Server.
@@ -76,7 +86,7 @@ Catalog מאוחדים ל-Phase 2 אחד:
 
 ## שלב ו — Legacy Support ו-Build Your Own Workflow
 
-**סטטוס: חסום עד לזמינות סביבת Legacy נפרדת**
+**סטטוס: ממתין לאחר MVP; ניתן להקים עותק מבודד מקוד הפרויקט**
 
 - בידוד פרויקט Legacy, Reverse Engineering, TODO, README ומסמכי Constitution.
 - Feature Spec ומימוש Feedback Form; אין לשנות את Agent Clinic.
@@ -84,7 +94,7 @@ Catalog מאוחדים ל-Phase 2 אחד:
 
 ## שלב ז — הרחבות רשות וניידות בין סוכנים
 
-**סטטוס: ממתין; לא חלק מה-MVP**
+**סטטוס: ממתין; הרחבות אינן חלק מה-MVP**
 
 - GitHub Spec Kit, OpenSpec ו-Research Backlog.
 - Codex, OpenCode ו-ACP Registry.
@@ -93,8 +103,9 @@ Catalog מאוחדים ל-Phase 2 אחד:
 ## מקורות והחלטות תכולה
 
 - מקור קורס: [מאגר הקבצים הרשמי של DeepLearning.AI](https://github.com/https-deeplearning-ai/sc-spec-driven-development-files),
-  בפרט `Video09_Project_Replanning`, `Video10_The_second_feature_phase`
-  ו-`Video11_The_MVP`.
+  בפרט `Video09_Project_Replanning`, `Video10_The_second_feature_phase`,
+  `Video11_The_MVP`, `Video12_Legacy_support`,
+  `Video13_Build_your_own_workflow` ו-`Video14_Agents_replaceability`.
 - מקור הקורס מאשר את Agents & Ailments ואת איחוד שלבי Layout/Agent List/Detail/
   Ailments; התוכן ימומש רק כאתגרי AI בדיוניים, לא כמעקב רפואי.
 - הצהרת המשימה הקיימת, שאושרה קודם, מתמקדת ברווחה לאנשים עובדים. עדכון זה
@@ -102,8 +113,7 @@ Catalog מאוחדים ל-Phase 2 אחד:
   יתועד במפרט לפני מימוש. לא יישמרו מחלות או נתוני בריאות של אנשים.
 - Driver ל-SQLite וגרסת Pico נבחרו במפרט Phase 2 ונבדקו במימוש. ניסיון
   התקנה נקייה נכשל ב-Windows בעת בניית `better-sqlite3`: חסרים רכיבי MSVC/SDK
-  ו-`node-gyp@11.4.2` אינו מזהה את Visual Studio 2026. השלמת ההתקנה ואימות
-  חוזר ממתינים ל-Visual Studio 2022 Build Tools מתאימים. תכולת MVP מדויקת
-  תוגדר בשלב ד.
+  ו-`node-gyp@11.4.2` אינו מזהה את Visual Studio 2026. ניסיון לפתוח מתקין
+  VS 2022 Build Tools נכשל כי UAC נדחה/לא אושר; קוד לא שונה כתוצאה מכך.
 
 </div>

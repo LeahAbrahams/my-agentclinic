@@ -26,10 +26,22 @@ describe("SQLite seed data", () => {
     const relations = database
       .prepare("SELECT COUNT(*) AS count FROM agent_ailments")
       .get() as { count: number };
+    const therapies = database
+      .prepare("SELECT COUNT(*) AS count FROM therapies")
+      .get() as { count: number };
+    const therapyRelations = database
+      .prepare("SELECT COUNT(*) AS count FROM ailment_therapies")
+      .get() as { count: number };
+    const appointments = database
+      .prepare("SELECT COUNT(*) AS count FROM appointments")
+      .get() as { count: number };
 
     expect(agents.count).toBe(5);
     expect(ailments.count).toBe(5);
     expect(relations.count).toBe(6);
+    expect(therapies.count).toBeGreaterThanOrEqual(5);
+    expect(therapyRelations.count).toBeGreaterThan(0);
+    expect(appointments.count).toBe(1);
     expect(database.prepare("PRAGMA foreign_key_check").all()).toEqual([]);
   });
 
@@ -46,5 +58,18 @@ describe("SQLite seed data", () => {
     expect(
       database.prepare("SELECT COUNT(*) AS count FROM agents").get(),
     ).toEqual({ count: 1 });
+  });
+
+  it("rolls back all seed changes when a therapy conflicts", () => {
+    database = openDatabase(":memory:");
+    runMigrations(database);
+    database
+      .prepare("INSERT INTO therapies (id, name, description) VALUES (?, ?, ?)")
+      .run("conflict", "בדיקת מסלול", "פעולה מתנגשת");
+
+    expect(() => seedDatabase(database)).toThrow();
+    expect(
+      database.prepare("SELECT COUNT(*) AS count FROM agents").get(),
+    ).toEqual({ count: 0 });
   });
 });

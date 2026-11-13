@@ -1,0 +1,44 @@
+feature: mvp
+spec: specs/features/mvp/requirements.md
+plan: specs/features/mvp/plan.md
+requirements:
+  - id: REQ-041
+    plan_items: ["1.1", "1.3", "2.1"]
+  - id: REQ-042
+    plan_items: ["1.1", "1.2", "1.3"]
+  - id: REQ-043
+    plan_items: ["1.3", "2.1"]
+  - id: REQ-044
+    plan_items: ["3.1"]
+  - id: REQ-045
+    plan_items: ["1.1", "1.3", "3.1"]
+  - id: REQ-046
+    plan_items: ["1.1", "1.3", "3.1"]
+  - id: REQ-047
+    plan_items: ["3.1"]
+  - id: REQ-048
+    plan_items: ["1.1", "1.2", "1.3"]
+  - id: REQ-049
+    plan_items: ["1.3", "4.1"]
+  - id: REQ-050
+    plan_items: ["1.3", "4.1"]
+  - id: REQ-051
+    plan_items: ["1.1", "1.3", "4.1"]
+  - id: REQ-052
+    plan_items: ["2.1", "3.1", "4.1"]
+  - id: REQ-053
+    plan_items: ["2.1", "3.1", "4.1", "5.2"]
+  - id: REQ-054
+    plan_items: ["2.1", "3.1", "4.1", "5.2"]
+  - id: REQ-055
+    plan_items: ["5.1"]
+  - id: REQ-056
+    plan_items: ["5.1"]
+  - id: REQ-057
+    plan_items: ["3.1", "4.1"]
+  - id: REQ-058
+    plan_items: ["1.3", "3.1", "4.1"]
+  - id: REQ-059
+    plan_items: ["1.1", "1.2", "1.3"]
+  - id: REQ-060
+    plan_items: ["5.2"]

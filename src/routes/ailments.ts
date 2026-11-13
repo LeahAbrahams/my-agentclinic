@@ -3,7 +3,7 @@ import type { Hono } from "hono";
 import { jsx } from "hono/jsx";
 import { renderToString } from "hono/jsx/dom/server";
 import { AilmentsList } from "../components/AilmentsList.js";
-import { listAilments } from "../db/queries.js";
+import { listAilmentsWithTherapies } from "../db/queries.js";
 
 export function registerAilmentRoutes(
   app: Hono,
@@ -11,7 +11,11 @@ export function registerAilmentRoutes(
 ): void {
   app.get("/ailments", (context) =>
     context.html(
-      renderToString(jsx(AilmentsList, { ailments: listAilments(database) })),
+      renderToString(
+        jsx(AilmentsList, {
+          ailments: listAilmentsWithTherapies(database),
+        }),
+      ),
     ),
   );
 }

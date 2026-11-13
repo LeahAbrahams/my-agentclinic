@@ -7,6 +7,11 @@ export function AgentDetail({ agent }: AgentDetailProps) {
     <Layout title={`פרופיל: ${agent.name}`}>
       <article>
         <p>
+          <a href={`/appointments/new?agentId=${encodeURIComponent(agent.id)}`}>
+            קביעת פגישת שירות
+          </a>
+        </p>
+        <p>
           <strong>שם:</strong> {agent.name}
         </p>
         <p>

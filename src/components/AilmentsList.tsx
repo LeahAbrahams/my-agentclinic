@@ -12,6 +12,19 @@ export function AilmentsList({ ailments }: AilmentsListProps) {
             <article key={ailment.id}>
               <h3>{ailment.name}</h3>
               <p>{ailment.description}</p>
+              <h4>פעולות תמיכה מומלצות</h4>
+              {ailment.therapies.length === 0 ? (
+                <p>אין פעולות תמיכה משויכות כרגע.</p>
+              ) : (
+                <ul>
+                  {ailment.therapies.map((therapy) => (
+                    <li key={therapy.id}>
+                      <strong>{therapy.name}</strong>
+                      <p>{therapy.description}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </article>
           ))}
         </section>

@@ -27,6 +27,8 @@ describe("ailment catalog", () => {
     expect(body).toContain("לולאת מחשבה אינסופית");
     expect(body).toContain("הסוכן חוזר שוב ושוב");
     expect(body).toContain("תסמונת 500");
+    expect(body).toContain("פעולות תמיכה מומלצות");
+    expect(body).toContain("בדיקת מסלול");
   });
 
   it("shows a Hebrew empty state when the catalog has no entries", async () => {

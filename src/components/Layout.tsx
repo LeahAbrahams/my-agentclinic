@@ -4,6 +4,8 @@ const navigation = [
   { href: "/", label: "בית" },
   { href: "/agents", label: "סוכנים" },
   { href: "/ailments", label: "תקלות" },
+  { href: "/therapies", label: "פעולות תמיכה" },
+  { href: "/dashboard", label: "לוח צוות" },
 ];
 
 export function Layout({ title, children }: LayoutProps) {

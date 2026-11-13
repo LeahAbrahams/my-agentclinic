@@ -6,7 +6,13 @@ import { resolve } from "node:path";
 import type Database from "better-sqlite3";
 import { registerAilmentRoutes } from "./routes/ailments.js";
 import { registerAgentRoutes } from "./routes/agents.js";
+import { registerAppointmentRoutes } from "./routes/appointments.js";
+import { registerDashboardRoutes } from "./routes/dashboard.js";
+import { registerTherapyRoutes } from "./routes/therapies.js";
 import { HomePage } from "./components/HomePage.js";
+import { NotFoundPage } from "./components/NotFoundPage.js";
+import { ServerErrorPage } from "./components/ServerErrorPage.js";
+import { requestLogger } from "./middleware/logger.js";
 
 const picoCss = readFileSync(
   resolve(
@@ -26,6 +32,26 @@ const localCss = readFileSync(
 
 export function createApp(database: Database.Database): Hono {
   const app = new Hono();
+  app.use("*", requestLogger);
+
+  app.notFound((context) =>
+    context.html(
+      renderToString(
+        jsx(NotFoundPage, {
+          title: "העמוד לא נמצא",
+          message: "הכתובת המבוקשת אינה קיימת במרפאה.",
+        }),
+      ),
+      404,
+    ),
+  );
+  app.onError((error, context) => {
+    console.error("Unhandled Agent Clinic request error:", error);
+    return context.html(
+      renderToString(jsx(ServerErrorPage, {})),
+      500,
+    );
+  });
 
   app.get("/", (context) =>
     context.html(renderToString(jsx(HomePage, {}))),
@@ -39,6 +65,9 @@ export function createApp(database: Database.Database): Hono {
 
   registerAgentRoutes(app, database);
   registerAilmentRoutes(app, database);
+  registerTherapyRoutes(app, database);
+  registerAppointmentRoutes(app, database);
+  registerDashboardRoutes(app, database);
 
   return app;
 }

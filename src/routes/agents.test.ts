@@ -36,6 +36,7 @@ describe("agent pages", () => {
     expect(response.status).toBe(200);
     expect(body).toContain("אורביט");
     expect(body).toContain("לולאת מחשבה אינסופית");
+    expect(body).toContain("קביעת פגישת שירות");
     expect(body).not.toContain("נקודת קצה מדומיינת");
   });
 

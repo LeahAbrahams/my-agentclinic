@@ -28,12 +28,15 @@ describe("SQLite migrations", () => {
     expect(tables).toEqual([
       "agent_ailments",
       "agents",
+      "ailment_therapies",
       "ailments",
+      "appointments",
       "schema_migrations",
+      "therapies",
     ]);
     expect(
       database.prepare("SELECT COUNT(*) AS count FROM schema_migrations").get(),
-    ).toEqual({ count: 3 });
+    ).toEqual({ count: 6 });
   });
 
   it("enforces foreign keys on relation records", () => {
@@ -46,6 +49,50 @@ describe("SQLite migrations", () => {
           "INSERT INTO agent_ailments (agent_id, ailment_id) VALUES (?, ?)",
         )
         .run("missing-agent", "missing-ailment"),
+    ).toThrow();
+    expect(() =>
+      database
+        .prepare(
+          "INSERT INTO ailment_therapies (ailment_id, therapy_id) VALUES (?, ?)",
+        )
+        .run("missing-ailment", "missing-therapy"),
+    ).toThrow();
+    expect(() =>
+      database
+        .prepare(
+          `INSERT INTO appointments (id, agent_id, provider_name, scheduled_at)
+           VALUES (?, ?, ?, ?)`,
+        )
+        .run("appointment-invalid", "missing-agent", "צוות", "2030-01-15T10:00:00.000Z"),
+    ).toThrow();
+  });
+
+  it("enforces unique therapy links and supported appointment statuses", () => {
+    database = openDatabase(":memory:");
+    runMigrations(database);
+    database
+      .prepare("INSERT INTO agents (id, name, model_type, status) VALUES (?, ?, ?, ?)")
+      .run("agent-test", "סוכן בדיקה", "מודל בדיקה", "active");
+    database
+      .prepare("INSERT INTO ailments (id, name, description) VALUES (?, ?, ?)")
+      .run("ailment-test", "תקלה לבדיקה", "תיאור");
+    database
+      .prepare("INSERT INTO therapies (id, name, description) VALUES (?, ?, ?)")
+      .run("therapy-test", "פעולה לבדיקה", "תיאור");
+
+    const insertRelation = database.prepare(
+      "INSERT INTO ailment_therapies (ailment_id, therapy_id) VALUES (?, ?)",
+    );
+    insertRelation.run("ailment-test", "therapy-test");
+    expect(() => insertRelation.run("ailment-test", "therapy-test")).toThrow();
+
+    expect(() =>
+      database
+        .prepare(
+          `INSERT INTO appointments (id, agent_id, provider_name, scheduled_at, status)
+           VALUES (?, ?, ?, ?, ?)`,
+        )
+        .run("appointment-invalid", "agent-test", "צוות", "2030-01-15T10:00:00.000Z", "unknown"),
     ).toThrow();
   });
 

@@ -2,6 +2,9 @@
 
 ## 2026-11-13
 
+- docs: record install blocker and course progress
+<!-- changelog-commit: e17cc478deef43d4cc5a70792dd7b840c9441ae1 -->
+
 - feat: implement Agents and Ailments
 <!-- changelog-commit: 457fc196cbbac213abc970c828a18d7ede9ec29a -->
 

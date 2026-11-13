@@ -1,0 +1,243 @@
+batch_id: "MVP-B01"
+required_endpoints:
+  - method: GET
+    path: /therapies
+    source: specs/features/mvp/validation.md
+    status: pending
+  - method: GET
+    path: /ailments
+    source: specs/features/mvp/validation.md
+    status: pending
+  - method: GET
+    path: /appointments/new?agentId=agent-orbit
+    source: specs/features/mvp/validation.md
+    status: pending
+  - method: GET
+    path: /dashboard
+    source: specs/features/mvp/validation.md
+    status: pending
+completed_tasks:
+  - T038
+blocked_tasks:
+  - task_id: "T036"
+    reason: "npm ci and project quality gates are blocked by missing native build tools and incomplete node_modules."
+    required_task_ids: []
+  - task_id: "T037"
+    reason: "Production HTTP and browser validation require a successful clean dependency installation."
+    required_task_ids: ["T036"]
+files_changed:
+  T001-T003:
+    - file: src/db/migrate.test.ts
+      change_type: modified
+      description: Added schema, foreign-key, uniqueness, status, and migration rollback contracts.
+    - file: src/db/seed.test.ts
+      change_type: modified
+      description: Added idempotent therapy/link/appointment counts and transaction rollback coverage.
+    - file: src/db/queries.test.ts
+      change_type: created
+      description: Added therapy relation, appointment CRUD/status, and dashboard query tests.
+  T004-T006:
+    - file: src/db/migrations/004_create_therapies.sql
+      change_type: created
+      description: Added therapy catalog schema.
+    - file: src/db/migrations/005_create_ailment_therapies.sql
+      change_type: created
+      description: Added composite-key many-to-many relation with foreign keys.
+    - file: src/db/migrations/006_create_appointments.sql
+      change_type: created
+      description: Added appointment schema and supported-status constraint.
+  T007-T013:
+    - file: src/types/therapy.ts
+      change_type: created
+      description: Added therapy and ailment-with-therapy types.
+    - file: src/types/appointment.ts
+      change_type: created
+      description: Added appointment and dashboard data types.
+    - file: src/db/seeds/therapies.ts
+      change_type: created
+      description: Added five fictional technical support actions.
+    - file: src/db/seeds/ailment-therapies.ts
+      change_type: created
+      description: Added therapy-to-ailment relations.
+    - file: src/db/seed-data.ts
+      change_type: modified
+      description: Added transactional idempotent therapy, relation, and demo appointment seed.
+    - file: src/db/queries.ts
+      change_type: modified
+      description: Added catalog, appointment, status, and dashboard queries.
+  T014-T019:
+    - file: src/types/components.ts
+      change_type: modified
+      description: Added standalone component props.
+    - file: src/components/TherapiesList.tsx
+      change_type: created
+      description: Added therapy list and empty state.
+    - file: src/components/AilmentsList.tsx
+      change_type: modified
+      description: Added related support actions.
+    - file: src/routes/therapies.ts
+      change_type: created
+      description: Added therapy catalog route.
+    - file: src/app.ts
+      change_type: modified
+      description: Registered therapy endpoint.
+    - file: src/components/Layout.tsx
+      change_type: modified
+      description: Added therapy and dashboard navigation links.
+    - file: src/routes/therapies.test.ts
+      change_type: created
+      description: Added catalog and empty-state tests.
+  T020-T026:
+    - file: src/components/AppointmentForm.tsx
+      change_type: created
+      description: Added Hebrew service-request form.
+    - file: src/components/AppointmentConfirmation.tsx
+      change_type: created
+      description: Added confirmation page.
+    - file: src/routes/appointments.ts
+      change_type: created
+      description: Added input validation, appointment creation, redirect, and confirmation routes.
+    - file: src/components/AgentDetail.tsx
+      change_type: modified
+      description: Added agent-specific appointment link.
+    - file: src/routes/appointments.test.ts
+      change_type: created
+      description: Added valid/invalid booking, confirmation, and escaping tests.
+  T027-T030:
+    - file: src/components/Dashboard.tsx
+      change_type: created
+      description: Added local demonstration dashboard, metrics, tables, empty states, and status forms.
+    - file: src/routes/dashboard.ts
+      change_type: created
+      description: Added dashboard view and validated appointment status updates.
+    - file: src/routes/dashboard.test.ts
+      change_type: created
+      description: Added counts, status, invalid input, and empty-state tests.
+  T031-T034:
+    - file: src/components/ServerErrorPage.tsx
+      change_type: created
+      description: Added generic Hebrew error page.
+    - file: src/app.ts
+      change_type: modified
+      description: Added application-wide 404/500 handling and request middleware.
+    - file: src/middleware/logger.ts
+      change_type: created
+      description: Added request summary logging without query values or body.
+    - file: src/app.test.ts
+      change_type: modified
+      description: Added 404, 500, and safe request-log assertions.
+  T035:
+    - file: src/static/styles.css
+      change_type: modified
+      description: Added dashboard, responsive table, notice, error, and visible-focus styles.
+  T038:
+    - file: README.md
+      change_type: modified
+      description: Documented MVP scope, routes, and blocked validation.
+    - file: specs/roadmap.md
+      change_type: modified
+      description: Updated MVP implementation and verification status.
+    - file: TASKS.md
+      change_type: modified
+      description: Recorded implemented work, current blockers, and evidence.
+    - file: runtime-validation-report.md
+      change_type: modified
+      description: Recorded command outcomes and separated schema checks from project validation.
+  STAGE-7-CHANGELOG:
+    - file: CHANGELOG.md
+      change_type: modified
+      description: Regenerated dated entries from local commits through e17cc47; no commit was created.
+upstream_artifacts_consumed:
+  T001-T038:
+    - artifact: specs/features/mvp/requirements.md
+      used_for: "Functional requirements REQ-041 through REQ-060 and safety boundaries."
+    - artifact: specs/features/mvp/plan.md
+      used_for: "Task order, API routes, and requirement-to-file mapping."
+    - artifact: specs/features/mvp/validation.md
+      used_for: "Required route probes, quality gates, browser journeys, and scorecard."
+    - artifact: specs/mission.md
+      used_for: "Hebrew RTL presentation and fictional AI-only product content."
+    - artifact: specs/techstack.md
+      used_for: "Pinned TypeScript, Hono, SQLite, Vitest, and dependency constraints."
+evidence_mapping:
+  T004-T006:
+    - upstream: "REQ-042, REQ-048, REQ-059"
+      output: "src/db/migrations/004_create_therapies.sql through 006_create_appointments.sql"
+      evidence: "Python sqlite3 applied all six migrations; orphan relation and invalid status were rejected."
+  T007-T013:
+    - upstream: "REQ-041, REQ-042, REQ-045-REQ-051, REQ-059"
+      output: "src/db/seeds/ and src/db/queries.ts"
+      evidence: "Implementation and Vitest cases are present; Vitest did not start because its package is missing."
+  T014-T035:
+    - upstream: "REQ-043-REQ-058"
+      output: "src/components/, src/routes/, src/middleware/logger.ts, src/static/styles.css"
+      evidence: "Source and contract tests are present; route/runtime/browser behavior remains unverified."
+  T038:
+    - upstream: "REQ-060 and project documentation requirements"
+      output: "README.md, specs/roadmap.md, TASKS.md, runtime-validation-report.md"
+      evidence: "Files were read back and git diff --check passed."
+  STAGE-7-CHANGELOG:
+    - upstream: "Stage 7 CHANGELOG requirement"
+      output: "CHANGELOG.md"
+      evidence: "The changelog script exited successfully and the newest-first commit entries were read back."
+traceability:
+  - requirement: "REQ-041, REQ-042, REQ-043"
+    plan_item: "1.1-1.3, 2.1"
+    task: "T001-T019"
+    files: ["src/db/migrations/", "src/db/seeds/", "src/db/queries.ts", "src/routes/therapies.ts", "src/routes/ailments.ts", "src/components/TherapiesList.tsx", "src/components/AilmentsList.tsx"]
+    status: "in-progress"
+  - requirement: "REQ-044, REQ-045, REQ-046, REQ-047, REQ-048, REQ-057"
+    plan_item: "1.1-1.3, 3.1"
+    task: "T003, T006-T007, T010-T012, T020-T026"
+    files: ["src/db/migrations/006_create_appointments.sql", "src/db/queries.ts", "src/routes/appointments.ts", "src/components/AppointmentForm.tsx", "src/components/AppointmentConfirmation.tsx"]
+    status: "in-progress"
+  - requirement: "REQ-049, REQ-050, REQ-051, REQ-058"
+    plan_item: "1.3, 4.1"
+    task: "T003, T007, T010-T013, T027-T030"
+    files: ["src/db/queries.ts", "src/routes/dashboard.ts", "src/components/Dashboard.tsx"]
+    status: "in-progress"
+  - requirement: "REQ-052, REQ-053, REQ-054, REQ-055, REQ-056"
+    plan_item: "2.1-5.2"
+    task: "T014-T019, T024-T025, T029, T031-T035"
+    files: ["src/components/Layout.tsx", "src/app.ts", "src/middleware/logger.ts", "src/static/styles.css"]
+    status: "in-progress"
+  - requirement: "REQ-060"
+    plan_item: "5.2"
+    task: "T036-T038"
+    files: ["README.md", "specs/roadmap.md", "TASKS.md", "runtime-validation-report.md"]
+    status: "partial"
+protocol_violation: false
+errors:
+  - "npm test exited 1 before loading tests: node_modules/vitest/vitest.mjs is missing."
+  - "npm run typecheck exited 1 before checking project types: node_modules/typescript/bin/tsc is missing."
+  - "Global TypeScript 6.0.3 could not type-check because @types/node is unavailable."
+warnings:
+  - severity: HIGH
+    message: "T001-T035 have implementation and tests written but remain in progress until clean install, tests, typecheck, build, and runtime verification succeed."
+  - severity: HIGH
+    message: "Required GET endpoints remain pending runtime verification; no server or browser journey was run."
+test_results:
+  T001-T035:
+    command: "npm test"
+    passed: 0
+    failed: 1
+    skipped: 0
+    failures: ["Vitest executable could not load because node_modules/vitest/vitest.mjs is missing; no test cases ran."]
+  T004-T006:
+    command: "Python sqlite3 in-memory migration/constraint check"
+    passed: 8
+    failed: 0
+    skipped: 0
+    failures: []
+  T038:
+    command: "git diff --check"
+    passed: 1
+    failed: 0
+    skipped: 0
+    failures: []
+  STAGE-7-CHANGELOG:
+    command: "python .claude/skills/changelog/scripts/changelog.py"
+    passed: 1
+    failed: 0
+    skipped: 0
+    failures: []

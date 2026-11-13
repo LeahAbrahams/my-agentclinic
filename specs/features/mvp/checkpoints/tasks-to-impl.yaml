@@ -1,0 +1,710 @@
+metadata:
+  generated: "session continuation; date not recorded"
+  source_tasks: "specs/features/mvp/plan.md"
+  last_updated: "session continuation; date not recorded"
+summary:
+  total_tasks: 38
+  completed_tasks: 1
+  in_progress_tasks: 35
+  pending_tasks: 0
+  completion_percentage: 2.63
+tasks:
+  - task_id: "T001"
+    description: "Add migration and schema tests."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/migrate.test.ts"
+          change_type: "modified"
+          description: "Added MVP schema, foreign-key, uniqueness, status, and rollback assertions."
+    verification:
+      build_passed: false
+      test_results:
+        command: "npm test"
+        passed: 0
+        failed: 1
+        skipped: 0
+        failures: ["Vitest could not load; no tests ran."]
+      notes: "Migration SQL syntax and constraints were separately checked with Python sqlite3."
+    upstream_trace:
+      plan_item: "1.1"
+      requirements: ["REQ-041", "REQ-042", "REQ-048", "REQ-059"]
+      full_trace: "REQ-041/042/048/059 -> Plan 1.1 -> T001 -> src/db/migrate.test.ts"
+  - task_id: "T002"
+    description: "Test therapy relations and idempotent seeds."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/seed.test.ts"
+          change_type: "modified"
+          description: "Added therapy, relation, appointment, and rollback expectations."
+    verification:
+      build_passed: false
+      test_results:
+        command: "npm test"
+        passed: 0
+        failed: 1
+        skipped: 0
+        failures: ["Vitest could not load; no tests ran."]
+      notes: "Seed implementation has not been executed."
+    upstream_trace:
+      plan_item: "1.1"
+      requirements: ["REQ-041", "REQ-042", "REQ-059"]
+      full_trace: "REQ-041/042/059 -> Plan 1.1 -> T002 -> src/db/seed.test.ts"
+  - task_id: "T003"
+    description: "Test database queries and appointment operations."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/queries.test.ts"
+          change_type: "created"
+          description: "Added therapy, appointment, and dashboard query cases."
+    verification:
+      build_passed: false
+      test_results:
+        command: "npm test"
+        passed: 0
+        failed: 1
+        skipped: 0
+        failures: ["Vitest could not load; no tests ran."]
+      notes: "Query behavior is not executed."
+    upstream_trace:
+      plan_item: "1.1"
+      requirements: ["REQ-041", "REQ-042", "REQ-048", "REQ-059"]
+      full_trace: "REQ-041/042/048/059 -> Plan 1.1 -> T003 -> src/db/queries.test.ts"
+  - task_id: "T004"
+    description: "Create therapies migration."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/migrations/004_create_therapies.sql"
+          change_type: "added"
+          description: "Created unique-name therapy table."
+    verification:
+      build_passed: false
+      test_results:
+        command: "Python sqlite3 in-memory migration check"
+        passed: 1
+        failed: 0
+        skipped: 0
+        failures: []
+      notes: "Migration syntax verified; application runner tests remain blocked."
+    upstream_trace:
+      plan_item: "1.2"
+      requirements: ["REQ-042", "REQ-059"]
+      full_trace: "REQ-042/059 -> Plan 1.2 -> T004 -> 004_create_therapies.sql"
+  - task_id: "T005"
+    description: "Create ailment-to-therapy relation migration."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/migrations/005_create_ailment_therapies.sql"
+          change_type: "added"
+          description: "Created a composite-key many-to-many table with foreign keys."
+    verification:
+      build_passed: false
+      test_results:
+        command: "Python sqlite3 in-memory migration/constraint check"
+        passed: 2
+        failed: 0
+        skipped: 0
+        failures: []
+      notes: "Migration applied and orphan relation rejected; Vitest remains unavailable."
+    upstream_trace:
+      plan_item: "1.2"
+      requirements: ["REQ-042", "REQ-059"]
+      full_trace: "REQ-042/059 -> Plan 1.2 -> T005 -> 005_create_ailment_therapies.sql"
+  - task_id: "T006"
+    description: "Create appointment migration and status constraints."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/migrations/006_create_appointments.sql"
+          change_type: "added"
+          description: "Created appointment table with agent FK and status check."
+    verification:
+      build_passed: false
+      test_results:
+        command: "Python sqlite3 in-memory migration/constraint check"
+        passed: 2
+        failed: 0
+        skipped: 0
+        failures: []
+      notes: "Migration applied and invalid status rejected; Vitest remains unavailable."
+    upstream_trace:
+      plan_item: "1.2"
+      requirements: ["REQ-048", "REQ-059"]
+      full_trace: "REQ-048/059 -> Plan 1.2 -> T006 -> 006_create_appointments.sql"
+  - task_id: "T007"
+    description: "Define therapy and appointment types."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/types/therapy.ts"
+          change_type: "added"
+          description: "Added therapy and joined catalog types."
+        - file: "src/types/appointment.ts"
+          change_type: "added"
+          description: "Added appointment and dashboard types."
+    verification:
+      build_passed: false
+      notes: "Project typecheck blocked by missing TypeScript and @types/node packages."
+    upstream_trace:
+      plan_item: "1.3"
+      requirements: ["REQ-041", "REQ-048", "REQ-049", "REQ-050"]
+      full_trace: "REQ-041/048/049/050 -> Plan 1.3 -> T007 -> src/types/"
+  - task_id: "T008"
+    description: "Add five fictional support actions."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/seeds/therapies.ts"
+          change_type: "added"
+          description: "Added five fictional technical actions."
+    verification:
+      build_passed: false
+      notes: "Seed execution blocked by missing project dependencies."
+    upstream_trace:
+      plan_item: "1.3"
+      requirements: ["REQ-041", "REQ-058", "REQ-059"]
+      full_trace: "REQ-041/058/059 -> Plan 1.3 -> T008 -> src/db/seeds/therapies.ts"
+  - task_id: "T009"
+    description: "Add ailment-to-therapy seed relations."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/seeds/ailment-therapies.ts"
+          change_type: "added"
+          description: "Added mapped, fictional action relations."
+    verification:
+      build_passed: false
+      notes: "Seed execution blocked by missing project dependencies."
+    upstream_trace:
+      plan_item: "1.3"
+      requirements: ["REQ-042", "REQ-043", "REQ-059"]
+      full_trace: "REQ-042/043/059 -> Plan 1.3 -> T009 -> src/db/seeds/ailment-therapies.ts"
+  - task_id: "T010"
+    description: "Extend transactional, repeatable database seed."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/seed-data.ts"
+          change_type: "modified"
+          description: "Added therapies, relations, and one fictional pending appointment."
+    verification:
+      build_passed: false
+      notes: "Seed tests are written but not runnable."
+    upstream_trace:
+      plan_item: "1.3"
+      requirements: ["REQ-041", "REQ-042", "REQ-048", "REQ-059"]
+      full_trace: "REQ-041/042/048/059 -> Plan 1.3 -> T010 -> src/db/seed-data.ts"
+  - task_id: "T011"
+    description: "Add therapy and ailment support queries."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/queries.ts"
+          change_type: "modified"
+          description: "Added therapy listing and related support-action query."
+    verification:
+      build_passed: false
+      notes: "Query tests are written but not runnable."
+    upstream_trace:
+      plan_item: "1.3"
+      requirements: ["REQ-041", "REQ-042", "REQ-043"]
+      full_trace: "REQ-041/042/043 -> Plan 1.3 -> T011 -> src/db/queries.ts"
+  - task_id: "T012"
+    description: "Add appointment create, read, and status-update queries."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/queries.ts"
+          change_type: "modified"
+          description: "Added prepared-statement appointment operations."
+    verification:
+      build_passed: false
+      notes: "Query tests are written but not runnable."
+    upstream_trace:
+      plan_item: "1.3"
+      requirements: ["REQ-045", "REQ-046", "REQ-048", "REQ-051"]
+      full_trace: "REQ-045/046/048/051 -> Plan 1.3 -> T012 -> src/db/queries.ts"
+  - task_id: "T013"
+    description: "Add dashboard queries and summary data."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/db/queries.ts"
+          change_type: "modified"
+          description: "Added active-agent, active-ailment, and pending-appointment summaries."
+    verification:
+      build_passed: false
+      notes: "Query tests are written but not runnable."
+    upstream_trace:
+      plan_item: "1.3"
+      requirements: ["REQ-049", "REQ-050", "REQ-051"]
+      full_trace: "REQ-049/050/051 -> Plan 1.3 -> T013 -> src/db/queries.ts"
+  - task_id: "T014"
+    description: "Add standalone component props."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/types/components.ts"
+          change_type: "modified"
+          description: "Added independent prop interfaces for MVP pages."
+    verification:
+      build_passed: false
+      notes: "Project typecheck blocked."
+    upstream_trace:
+      plan_item: "2.1"
+      requirements: ["REQ-052", "REQ-054"]
+      full_trace: "REQ-052/054 -> Plan 2.1 -> T014 -> src/types/components.ts"
+  - task_id: "T015"
+    description: "Create therapy catalog component."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/components/TherapiesList.tsx"
+          change_type: "added"
+          description: "Added Hebrew list and empty state."
+    verification:
+      build_passed: false
+      notes: "Component tests are written but not runnable."
+    upstream_trace:
+      plan_item: "2.1"
+      requirements: ["REQ-041", "REQ-054"]
+      full_trace: "REQ-041/054 -> Plan 2.1 -> T015 -> src/components/TherapiesList.tsx"
+  - task_id: "T016"
+    description: "Show related support actions in ailment catalog."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/components/AilmentsList.tsx"
+          change_type: "modified"
+          description: "Added linked support-action details."
+    verification:
+      build_passed: false
+      notes: "Route tests are written but not runnable."
+    upstream_trace:
+      plan_item: "2.1"
+      requirements: ["REQ-043", "REQ-054"]
+      full_trace: "REQ-043/054 -> Plan 2.1 -> T016 -> src/components/AilmentsList.tsx"
+  - task_id: "T017"
+    description: "Create GET /therapies route."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/routes/therapies.ts"
+          change_type: "added"
+          description: "Registered catalog route."
+    verification:
+      build_passed: false
+      notes: "Required HTTP probe remains pending."
+    upstream_trace:
+      plan_item: "2.1"
+      requirements: ["REQ-041", "REQ-054"]
+      full_trace: "REQ-041/054 -> Plan 2.1 -> T017 -> src/routes/therapies.ts"
+  - task_id: "T018"
+    description: "Register therapy route and navigation."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/app.ts"
+          change_type: "modified"
+          description: "Registered therapy route."
+        - file: "src/components/Layout.tsx"
+          change_type: "modified"
+          description: "Added therapy and dashboard links."
+    verification:
+      build_passed: false
+      notes: "HTTP and navigation browser checks remain pending."
+    upstream_trace:
+      plan_item: "2.1"
+      requirements: ["REQ-052"]
+      full_trace: "REQ-052 -> Plan 2.1 -> T018 -> src/app.ts and Layout.tsx"
+  - task_id: "T019"
+    description: "Test therapy and recommendation routes."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/routes/therapies.test.ts"
+          change_type: "added"
+          description: "Added list and empty-state test."
+        - file: "src/routes/ailments.test.ts"
+          change_type: "modified"
+          description: "Added support-action assertions."
+    verification:
+      build_passed: false
+      test_results:
+        command: "npm test"
+        passed: 0
+        failed: 1
+        skipped: 0
+        failures: ["Vitest could not load; no tests ran."]
+      notes: "Tests have not executed."
+    upstream_trace:
+      plan_item: "2.1"
+      requirements: ["REQ-041", "REQ-043"]
+      full_trace: "REQ-041/043 -> Plan 2.1 -> T019 -> therapy/ailment route tests"
+  - task_id: "T020"
+    description: "Create Hebrew appointment form."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/components/AppointmentForm.tsx"
+          change_type: "added"
+          description: "Added required fields, retained values, and error state."
+    verification:
+      build_passed: false
+      notes: "Route tests are written but not runnable."
+    upstream_trace:
+      plan_item: "3.1"
+      requirements: ["REQ-045", "REQ-047", "REQ-052"]
+      full_trace: "REQ-045/047/052 -> Plan 3.1 -> T020 -> AppointmentForm.tsx"
+  - task_id: "T021"
+    description: "Create appointment confirmation page."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/components/AppointmentConfirmation.tsx"
+          change_type: "added"
+          description: "Added escaped appointment details and status label."
+    verification:
+      build_passed: false
+      notes: "Confirmation route test is written but not runnable."
+    upstream_trace:
+      plan_item: "3.1"
+      requirements: ["REQ-046", "REQ-057"]
+      full_trace: "REQ-046/057 -> Plan 3.1 -> T021 -> AppointmentConfirmation.tsx"
+  - task_id: "T022"
+    description: "Add appointment component props."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/types/components.ts"
+          change_type: "modified"
+          description: "Added form and confirmation props."
+    verification:
+      build_passed: false
+      notes: "Project typecheck blocked."
+    upstream_trace:
+      plan_item: "3.1"
+      requirements: ["REQ-045", "REQ-046"]
+      full_trace: "REQ-045/046 -> Plan 3.1 -> T022 -> src/types/components.ts"
+  - task_id: "T023"
+    description: "Implement appointment form, validation, creation, and confirmation routes."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/routes/appointments.ts"
+          change_type: "added"
+          description: "Added GET form, validated POST/303, and confirmation GET."
+    verification:
+      build_passed: false
+      notes: "HTTP and Vitest checks remain pending."
+    upstream_trace:
+      plan_item: "3.1"
+      requirements: ["REQ-044", "REQ-045", "REQ-046", "REQ-047"]
+      full_trace: "REQ-044-047 -> Plan 3.1 -> T023 -> src/routes/appointments.ts"
+  - task_id: "T024"
+    description: "Link agent detail to a service request."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/components/AgentDetail.tsx"
+          change_type: "modified"
+          description: "Added agent-specific booking link."
+    verification:
+      build_passed: false
+      notes: "Browser navigation check remains pending."
+    upstream_trace:
+      plan_item: "3.1"
+      requirements: ["REQ-044"]
+      full_trace: "REQ-044 -> Plan 3.1 -> T024 -> src/components/AgentDetail.tsx"
+  - task_id: "T025"
+    description: "Register appointment routes."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/app.ts"
+          change_type: "modified"
+          description: "Registered appointment routes."
+    verification:
+      build_passed: false
+      notes: "HTTP checks remain pending."
+    upstream_trace:
+      plan_item: "3.1"
+      requirements: ["REQ-044", "REQ-046"]
+      full_trace: "REQ-044/046 -> Plan 3.1 -> T025 -> src/app.ts"
+  - task_id: "T026"
+    description: "Test appointment validation, redirect, confirmation, and escaping."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/routes/appointments.test.ts"
+          change_type: "added"
+          description: "Added valid/invalid input and HTML escaping cases."
+    verification:
+      build_passed: false
+      test_results:
+        command: "npm test"
+        passed: 0
+        failed: 1
+        skipped: 0
+        failures: ["Vitest could not load; no tests ran."]
+      notes: "Tests have not executed."
+    upstream_trace:
+      plan_item: "3.1"
+      requirements: ["REQ-045", "REQ-046", "REQ-047", "REQ-057"]
+      full_trace: "REQ-045/046/047/057 -> Plan 3.1 -> T026 -> appointments.test.ts"
+  - task_id: "T027"
+    description: "Create staff dashboard component."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/components/Dashboard.tsx"
+          change_type: "added"
+          description: "Added summary metrics, active-agent table, pending appointments, and empty states."
+    verification:
+      build_passed: false
+      notes: "UI and browser checks remain pending."
+    upstream_trace:
+      plan_item: "4.1"
+      requirements: ["REQ-049", "REQ-050", "REQ-058"]
+      full_trace: "REQ-049/050/058 -> Plan 4.1 -> T027 -> Dashboard.tsx"
+  - task_id: "T028"
+    description: "Implement dashboard and status update route."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/routes/dashboard.ts"
+          change_type: "added"
+          description: "Added dashboard rendering and validated status update."
+    verification:
+      build_passed: false
+      notes: "HTTP and route tests remain pending."
+    upstream_trace:
+      plan_item: "4.1"
+      requirements: ["REQ-049", "REQ-050", "REQ-051"]
+      full_trace: "REQ-049/050/051 -> Plan 4.1 -> T028 -> dashboard.ts"
+  - task_id: "T029"
+    description: "Register dashboard and explain its local-only scope."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/app.ts"
+          change_type: "modified"
+          description: "Registered dashboard endpoint."
+        - file: "src/components/Layout.tsx"
+          change_type: "modified"
+          description: "Added dashboard navigation link."
+        - file: "src/components/Dashboard.tsx"
+          change_type: "added"
+          description: "Explicitly labels the dashboard local-only and unauthenticated."
+    verification:
+      build_passed: false
+      notes: "Route/browser checks remain pending."
+    upstream_trace:
+      plan_item: "4.1"
+      requirements: ["REQ-050", "REQ-052", "REQ-058"]
+      full_trace: "REQ-050/052/058 -> Plan 4.1 -> T029 -> app/Layout/Dashboard"
+  - task_id: "T030"
+    description: "Test dashboard counts, status changes, invalid input, and empty states."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/routes/dashboard.test.ts"
+          change_type: "added"
+          description: "Added dashboard and appointment-status route cases."
+    verification:
+      build_passed: false
+      test_results:
+        command: "npm test"
+        passed: 0
+        failed: 1
+        skipped: 0
+        failures: ["Vitest could not load; no tests ran."]
+      notes: "Tests have not executed."
+    upstream_trace:
+      plan_item: "4.1"
+      requirements: ["REQ-049", "REQ-050", "REQ-051"]
+      full_trace: "REQ-049/050/051 -> Plan 4.1 -> T030 -> dashboard.test.ts"
+  - task_id: "T031"
+    description: "Create safe server-error page."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/components/ServerErrorPage.tsx"
+          change_type: "added"
+          description: "Added generic Hebrew error page without implementation details."
+    verification:
+      build_passed: false
+      notes: "500 route test is written but not runnable."
+    upstream_trace:
+      plan_item: "5.1"
+      requirements: ["REQ-055"]
+      full_trace: "REQ-055 -> Plan 5.1 -> T031 -> ServerErrorPage.tsx"
+  - task_id: "T032"
+    description: "Add custom not-found and server-error handlers."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/app.ts"
+          change_type: "modified"
+          description: "Added Hebrew 404 and generic logged 500 handlers."
+    verification:
+      build_passed: false
+      notes: "App error-path tests are written but not runnable."
+    upstream_trace:
+      plan_item: "5.1"
+      requirements: ["REQ-055"]
+      full_trace: "REQ-055 -> Plan 5.1 -> T032 -> src/app.ts"
+  - task_id: "T033"
+    description: "Add privacy-safe request logger."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/middleware/logger.ts"
+          change_type: "added"
+          description: "Logs method, pathname, status, and duration without body/query values."
+    verification:
+      build_passed: false
+      notes: "Logger tests are written but not runnable."
+    upstream_trace:
+      plan_item: "5.1"
+      requirements: ["REQ-056"]
+      full_trace: "REQ-056 -> Plan 5.1 -> T033 -> src/middleware/logger.ts"
+  - task_id: "T034"
+    description: "Register logger and test 404, 500, and logging."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/app.ts"
+          change_type: "modified"
+          description: "Registered request middleware before routes."
+        - file: "src/app.test.ts"
+          change_type: "modified"
+          description: "Added 404, 500, and query privacy assertions."
+    verification:
+      build_passed: false
+      test_results:
+        command: "npm test"
+        passed: 0
+        failed: 1
+        skipped: 0
+        failures: ["Vitest could not load; no tests ran."]
+      notes: "Tests have not executed."
+    upstream_trace:
+      plan_item: "5.1"
+      requirements: ["REQ-055", "REQ-056"]
+      full_trace: "REQ-055/056 -> Plan 5.1 -> T034 -> app.ts and app.test.ts"
+  - task_id: "T035"
+    description: "Improve responsive layout and visible keyboard focus."
+    status: "in-progress"
+    implementation:
+      files_changed:
+        - file: "src/static/styles.css"
+          change_type: "modified"
+          description: "Added responsive metrics/table wrappers and focus/error styles."
+    verification:
+      build_passed: false
+      notes: "375px/1280px browser validation has not run."
+    upstream_trace:
+      plan_item: "5.2"
+      requirements: ["REQ-052", "REQ-053", "REQ-054"]
+      full_trace: "REQ-052/053/054 -> Plan 5.2 -> T035 -> src/static/styles.css"
+  - task_id: "T036"
+    description: "Run clean installation and all quality gates."
+    status: "blocked"
+    verification:
+      build_passed: false
+      test_results:
+        command: "npm ci; npm test; npm run typecheck; npm run build; npm audit; npm run seed"
+        passed: 0
+        failed: 2
+        skipped: 0
+        failures: ["Clean installation not retried; npm test and npm run typecheck cannot resolve missing project packages."]
+      notes: "Await Visual Studio 2022 Build Tools with MSVC v143 and Windows SDK."
+    upstream_trace:
+      plan_item: "5.2"
+      requirements: ["REQ-060"]
+      full_trace: "REQ-060 -> Plan 5.2 -> T036 -> clean install and quality gates"
+  - task_id: "T037"
+    description: "Run production HTTP and browser journeys."
+    status: "blocked"
+    verification:
+      build_passed: false
+      notes: "No server started; HTTP/browser checks require successful npm ci."
+    upstream_trace:
+      plan_item: "5.2"
+      requirements: ["REQ-041-REQ-060"]
+      full_trace: "REQ-041-060 -> Plan 5.2 -> T037 -> runtime/browser evidence"
+  - task_id: "T038"
+    description: "Update README, Roadmap, TASKS, and validation report with evidence."
+    status: "completed"
+    implementation:
+      files_changed:
+        - file: "README.md"
+          change_type: "modified"
+          description: "Updated MVP description, routes, and explicit verification state."
+        - file: "specs/roadmap.md"
+          change_type: "modified"
+          description: "Recorded MVP implementation progress and blockers."
+        - file: "TASKS.md"
+          change_type: "modified"
+          description: "Recorded task state and actual command results."
+        - file: "runtime-validation-report.md"
+          change_type: "modified"
+          description: "Separated current partial checks from historical results."
+    verification:
+      build_passed: false
+      test_results:
+        command: "git diff --check and document read-back"
+        passed: 1
+        failed: 0
+        skipped: 0
+        failures: []
+      notes: "Documentation accurately states that clean install and application gates remain open."
+    upstream_trace:
+      plan_item: "5.2"
+      requirements: ["REQ-060"]
+      full_trace: "REQ-060 -> Plan 5.2 -> T038 -> README/Roadmap/TASKS/runtime report"
+pending_tasks: []
+untracked_changes: []
+traceability_chain:
+  - chain_id: "MVP-CATALOG"
+    requirement: "REQ-041-REQ-043"
+    plan_phase: "Phase 1-2"
+    plan_item: "1.1-2.1"
+    tasks: ["T001", "T002", "T004", "T005", "T007", "T008", "T009", "T011", "T014", "T015", "T016", "T017", "T018", "T019"]
+    files: ["src/db/", "src/routes/therapies.ts", "src/routes/ailments.ts", "src/components/TherapiesList.tsx", "src/components/AilmentsList.tsx"]
+    status: "partial"
+  - chain_id: "MVP-APPOINTMENTS"
+    requirement: "REQ-044-REQ-048"
+    plan_phase: "Phase 1 and 3"
+    plan_item: "1.1-1.3, 3.1"
+    tasks: ["T003", "T006", "T007", "T010", "T012", "T020", "T021", "T022", "T023", "T024", "T025", "T026"]
+    files: ["src/db/migrations/006_create_appointments.sql", "src/db/queries.ts", "src/routes/appointments.ts", "src/components/AppointmentForm.tsx", "src/components/AppointmentConfirmation.tsx"]
+    status: "partial"
+  - chain_id: "MVP-DASHBOARD"
+    requirement: "REQ-049-REQ-051"
+    plan_phase: "Phase 1 and 4"
+    plan_item: "1.3, 4.1"
+    tasks: ["T003", "T007", "T010", "T013", "T027", "T028", "T029", "T030"]
+    files: ["src/db/queries.ts", "src/routes/dashboard.ts", "src/components/Dashboard.tsx"]
+    status: "partial"
+  - chain_id: "MVP-HARDENING"
+    requirement: "REQ-052-REQ-060"
+    plan_phase: "Phase 2-5"
+    plan_item: "2.1-5.2"
+    tasks: ["T014-T035", "T036", "T037", "T038"]
+    files: ["src/app.ts", "src/middleware/logger.ts", "src/components/", "src/static/styles.css", "README.md", "TASKS.md", "runtime-validation-report.md"]
+    status: "partial"
+validation:
+  passed: false
+  errors:
+    - "Automated tests, project typecheck, build, seed, audit, HTTP, and browser validation are not complete."
+  warnings:
+    - "Global TypeScript transpile parsed 49 .ts/.tsx files with zero syntax diagnostics; this does not type-check dependencies."
+  blocking_issues:
+    - "npm ci is blocked by missing Windows MSVC/SDK for better-sqlite3."
+    - "Required endpoint probes are pending until the server can run."
