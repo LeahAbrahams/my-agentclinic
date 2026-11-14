@@ -4,8 +4,22 @@
 
 - **Branch**: `feature/hello-hono`
 - **נוצר**: 2026-11-12
-- **סטטוס**: אושרה למימוש; Commit מקומי לפני תחילת המימוש
+- **סטטוס**: הושלמה ואומתה; שונתה בשלב Agents and Ailments (ראו הערת אבולוציה מטה)
 - **קלט**: ראיון דרישות; המשתמשת האצילה את בחירות ברירת המחדל.
+
+## הערת אבולוציה — שינוי REQ-003 בשלב Agents and Ailments
+
+**תאריך שינוי**: 2026-11-13 | **סיבה**: דרישת Phase 2 של הקורס
+
+בשלב מימוש `feature/agents-and-ailments`, הנתיב `GET /` הוסב מתגובת
+`text/plain` לדף HTML מלא עם Layout. שינוי זה מתועד ב-`specs/features/agents-and-ailments/spec.md` תחת סעיף 6 ("מסך הבית ישמור את ברכת `Hello Hono!`").
+
+**השפעה על REQ-003**: הדרישה המקורית — `Content-Type: text/plain` עם גוף מדויק `Hello Hono!` — הוחלפה בדרישה המורחבת: הנתיב MUST להחזיר `Content-Type: text/html`, HTML סמנטי עם Layout מלא, וכותרת `<h3>Hello Hono!</h3>` בגוף הדף. בדיקת הנסיגה `src/app.test.ts` מאמתת שה-HTML *מכיל* את הטקסט `Hello Hono!`, שה-status הוא `200`, וש-content-type הוא `text/html`.
+
+**REQ-003 (מעודכן)**: גוף התגובה MUST להכיל את הטקסט `Hello Hono!` בתוך HTML
+  סמנטי עם Layout בעברית/RTL; content-type MUST להיות `text/html`. (הדרישה
+  המקורית `text/plain` חלה על שלב Hello Hono בלבד והוחלפה מפורשות בשלב
+  Agents and Ailments.)
 
 ## מטרת הפיצ'ר
 

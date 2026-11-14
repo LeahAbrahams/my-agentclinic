@@ -20,8 +20,9 @@
 | הקמת Agent Clinic וה-Constitution | הושלמה כבסיס | מסמכי יסוד ו-README קיימים; היקף MVP ייקבע במפרטים ייעודיים |
 | Hello Hono | הושלמה ונבדקה | Commit `cbadbc7` נשמר בשרשרת המקומית; ללא Push |
 | Replanning | הושלם ונבדק | Commits `fef7f93`, `d8fc699`; אושר Fast-forward מקומי ל-main |
-| Agents and Ailments | מומש ונבדק בעבר | Commit `457fc19`; 22 בדיקות אוטומטיות עברו לפני עבודת ה-MVP |
+| Agents and Ailments | מומש ונבדק בעבר | Commit `457fc19`; 22 בדיקות אוטומטיות עברו לפני עבודת ה-MVP; Code Review בוצע — ראו `specs/features/agents-and-ailments/code-review.md` |
 | MVP (Therapies, Appointments, Dashboard) | הושלם ונבדק ב-`feature/mvp` וב-`main` | 45/45 בדיקות; Typecheck, Build, audit, Seed מבודד, HTTP, מסעות דפדפן ורספונסיביות עברו; Vercel הצליח עבור `5943e2c` |
+| CHANGELOG Skill | עובד ומעודכן | סקריפט Python הורץ; `CHANGELOG.md` מכסה את כל commits כולל MVP |
 | Skill ליצירת Feature Spec | נוצר ונבדק ידנית | `.claude/skills/feature-spec/SKILL.md`; dry-run מול מפרט הפגישות הקיים; הפעלה ישירה מתוך CLI של Claude Code לא אומתה |
 
 ## שלב 1 — הכנת סביבת העבודה
@@ -123,11 +124,11 @@
 | [x] | מימוש הפיצ'ר לפי המפרט | הושלמה ונבדקה | קוד T001–T028 נכתב; בדיקות, Typecheck, Build, Seed, HTTP ודפדפן עברו לפני בדיקת ההתקנה הנקייה |
 | [x] | חילוץ Props לטיפוסי TypeScript עצמאיים | הושלמה ונבדקה | `src/types/components.ts`; נבדק ב-`npm run typecheck` |
 | [x] | בדיקות אוטומטיות ואימות חוזר של הפיצ'ר | הושלמה ונבדקה | בהרצה העדכנית: 45/45 בדיקות, Typecheck, Build ו-audit (0 חולשות); בדיקות HTTP ודפדפן מקומיות מפורטות בדוח |
-| [x] | Code Review באמצעות Sub-agent אם זמין ומוצדק | הושלמה ונבדקה | הסקירה הסתיימה ללא ממצאים משמעותיים |
+| [x] | Code Review באמצעות Sub-agent אם זמין ומוצדק | הושלמה ונבדקה | הסקירה הסתיימה ללא ממצאים קריטיים; ממצאים מתועדים ב-`specs/features/agents-and-ailments/code-review.md` |
 | [x] | בדיקת התאמה בין דרישות המפרט, הבדיקות והקוד | הושלמה | 22 מקרי בדיקה ב-7 קבצים מכסים מיגרציות/עסקאות/FK, Seed ואידמפוטנטיות, שמירת נתונים, מסלולים, 404, מצבים ריקים, RTL, escaping ונכסי CSS |
 | [x] | אימות התקנה והרצה חוזרת של שערי האיכות | הושלמה ונבדקה | `npm ci --ignore-scripts` הצליח; 45/45 בדיקות, Typecheck, Build, Seed מבודד, audit ו-Vercel עברו. התקנה רגילה ב-Windows דורשת כלי C++ לבניית `better-sqlite3` |
 | [x] | עדכון README ומסמכי מצב התלויות | הושלמה ונבדקה | README, Roadmap, דרישות טכניות ו-checklist מעודכנים לתוצאות האימות הנוכחיות |
-| [x] | עדכון CHANGELOG באמצעות ה-Skill | הושלמה ונבדקה | הסקריפט הופעל וקובץ הפלט נקרא בחזרה; `CHANGELOG.md` מכסה Commit מקומי אחרון `e17cc47` ועד `d1a83d5`; תוכן MVP לא נכלל כי אינו committed |
+| [x] | עדכון CHANGELOG באמצעות ה-Skill | הושלמה ונבדקה | הסקריפט הופעל פעמיים: לאחר Agents and Ailments ולאחר MVP; `CHANGELOG.md` מכסה את כל commits מ-`d1a83d5` עד `b85241c` כולל כל commits שלב MVP |
 | [x] | רישום דוח אימות ותוצאות בפועל | הושלמה ונבדקה | `runtime-validation-report.md` מתעד את תוצאות הבדיקות, HTTP, הדפדפן ו-Vercel |
 
 ## שלב 8 — השלמת MVP
