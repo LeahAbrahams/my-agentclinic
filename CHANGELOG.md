@@ -2,6 +2,19 @@
 
 ## 2026-11-13
 
+- docs: present verified Agent Clinic features
+<!-- changelog-commit: b85241cd3c12a8b4982f9d17e15f7d695a39f0a0 -->
+- docs: record MVP merge to main
+<!-- changelog-commit: 2301e79a278a8a24b1e921a58a319581954e0567 -->
+- docs: record completed MVP validation
+<!-- changelog-commit: 5943e2c508026f1228d98eec581e1df24a28baef -->
+- docs: record successful Vercel deployment
+<!-- changelog-commit: 40b72f4e8acf38c65c7840f18c53c65c58feafbd -->
+- fix: validate appointment date components safely
+<!-- changelog-commit: 02920f4b4877ff52b8a4d1792795dfda0e0aca0d -->
+- feat: implement MVP routes and dashboard
+<!-- changelog-commit: 60284092406ee458e9d3df7ba1b2b6e6ea514fa5 -->
+
 - docs: record install blocker and course progress
 <!-- changelog-commit: e17cc478deef43d4cc5a70792dd7b840c9441ae1 -->
 

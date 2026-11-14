@@ -103,6 +103,6 @@ Follow-up TODOs:
 הסבר, חלופה פשוטה יותר שנשקלה ואישור לפני מימוש. `TASKS.md` הוא רישום התקדמות,
 בדיקות, החלטות, חסימות ואישורים.
 
-**Version**: 0.1.1 | **Ratified**: TODO(RATIFICATION_DATE): ממתין לאישור המשתמשת | **Last Amended**: 2026-11-13
+**Version**: 0.1.1 | **Ratified**: 2026-11-13 | **Last Amended**: 2026-11-13
 
 </div>

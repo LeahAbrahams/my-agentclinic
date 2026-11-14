@@ -175,52 +175,52 @@ src/
 
 ### Phase 1 — Setup
 
-- [ ] T001 [Plan:1.1] הוסף `better-sqlite3@13.1.1`, `@types/better-sqlite3@9.6.0`, `@picocss/pico@2.1.1` ותצורת TSX מדויקת ב-`package.json`, `package-lock.json`, `tsconfig.json`.
-- [ ] T002 [Plan:1.1] הוסף החרגה של `agentclinic.db`, `agentclinic.db-shm` ו-`agentclinic.db-wal` ל-`.gitignore`.
+- [x] T001 [Plan:1.1] הוסף `better-sqlite3@13.1.1`, `@types/better-sqlite3@9.6.0`, `@picocss/pico@2.1.1` ותצורת TSX מדויקת ב-`package.json`, `package-lock.json`, `tsconfig.json`.
+- [x] T002 [Plan:1.1] הוסף החרגה של `agentclinic.db`, `agentclinic.db-shm` ו-`agentclinic.db-wal` ל-`.gitignore`.
 
 ### Phase 2 — Foundational
 
-- [ ] T003 [Plan:2.1] כתוב בדיקות למיגרציה פעמיים, סכימה ו-FK ב-`src/db/migrate.test.ts`.
-- [ ] T004 [Plan:2.1] צור פתיחת SQLite והפעלת foreign keys ב-`src/db/index.ts`.
-- [ ] T005 [Plan:2.1] צור Runner ממוין ואטומי ורישום applied migrations ב-`src/db/migrate.ts`.
-- [ ] T006 [Plan:2.1] צור מיגרציות Agents, Ailments ו-Agent-Ailment ב-`src/db/migrations/001_create_agents.sql`, `002_create_ailments.sql`, `003_create_agent_ailments.sql`.
-- [ ] T007 [Plan:2.2] כתוב בדיקות seed חוזר, ספירות וקשרים ב-`src/db/seed.test.ts`.
-- [ ] T008 [Plan:2.2] צור נתוני seed וטיפוסי Domain ב-`src/db/seeds/agents.ts`, `src/db/seeds/ailments.ts`, `src/types/agent.ts`, `src/types/ailment.ts`.
-- [ ] T009 [Plan:2.2] צור פקודת seed נפרדת ב-`src/db/seed.ts` והוסף סקריפט `seed` ל-`package.json`.
+- [x] T003 [Plan:2.1] כתוב בדיקות למיגרציה פעמיים, סכימה ו-FK ב-`src/db/migrate.test.ts`.
+- [x] T004 [Plan:2.1] צור פתיחת SQLite והפעלת foreign keys ב-`src/db/index.ts`.
+- [x] T005 [Plan:2.1] צור Runner ממוין ואטומי ורישום applied migrations ב-`src/db/migrate.ts`.
+- [x] T006 [Plan:2.1] צור מיגרציות Agents, Ailments ו-Agent-Ailment ב-`src/db/migrations/001_create_agents.sql`, `002_create_ailments.sql`, `003_create_agent_ailments.sql`.
+- [x] T007 [Plan:2.2] כתוב בדיקות seed חוזר, ספירות וקשרים ב-`src/db/seed.test.ts`.
+- [x] T008 [Plan:2.2] צור נתוני seed וטיפוסי Domain ב-`src/db/seeds/agents.ts`, `src/db/seeds/ailments.ts`, `src/types/agent.ts`, `src/types/ailment.ts`.
+- [x] T009 [Plan:2.2] צור פקודת seed נפרדת ב-`src/db/seed.ts` והוסף סקריפט `seed` ל-`package.json`.
 
 ### Phase 3 — User Story 1 (P1)
 
-- [ ] T010 [US1] [Plan:3.1] כתוב בדיקות Layout, שפה, RTL, ניווט ונכסים ב-`src/components/Layout.test.tsx`.
-- [ ] T011 [US1] [Plan:3.1] צור Props עצמאיים ו-Layout משותף ב-`src/types/components.ts` וב-`src/components/Layout.tsx`.
-- [ ] T012 [US1] [Plan:3.1] הוסף הגשה מקומית של Pico classless ו-CSS כתום/שחור mobile-first ב-`src/app.ts` וב-`src/static/styles.css`.
-- [ ] T013 [US1] [Plan:3.2] כתוב בדיקת בית ל-`Hello Hono!` ולניווט ב-`src/app.test.ts`.
-- [ ] T014 [US1] [Plan:3.2] החלף את תשובת הטקסט בדף בית HTML סמנטי ב-`src/components/HomePage.tsx` וב-`src/app.ts`.
+- [x] T010 [US1] [Plan:3.1] כתוב בדיקות Layout, שפה, RTL, ניווט ונכסים ב-`src/components/Layout.test.tsx`.
+- [x] T011 [US1] [Plan:3.1] צור Props עצמאיים ו-Layout משותף ב-`src/types/components.ts` וב-`src/components/Layout.tsx`.
+- [x] T012 [US1] [Plan:3.1] הוסף הגשה מקומית של Pico classless ו-CSS כתום/שחור mobile-first ב-`src/app.ts` וב-`src/static/styles.css`.
+- [x] T013 [US1] [Plan:3.2] כתוב בדיקת בית ל-`Hello Hono!` ולניווט ב-`src/app.test.ts`.
+- [x] T014 [US1] [Plan:3.2] החלף את תשובת הטקסט בדף בית HTML סמנטי ב-`src/components/HomePage.tsx` וב-`src/app.ts`.
 
 ### Phase 4 — User Story 2 (P1)
 
-- [ ] T015 [US2] [Plan:4.1,4.2] כתוב בדיקות רשימה/פרופיל/404 וקשרים ב-`src/routes/agents.test.ts`.
-- [ ] T016 [US2] [Plan:4.1] צור שאילתות Agents פרמטריות עם טיפוסי תוצאה ב-`src/db/queries.ts`.
-- [ ] T017 [US2] [Plan:4.2] צור רכיבי Props נפרדים לרשימה ולפרטים ב-`src/components/AgentsList.tsx`, `src/components/AgentDetail.tsx` וב-`src/types/components.ts`.
-- [ ] T018 [US2] [Plan:4.2] צור ורשום מסלולי `GET /agents` ו-`GET /agents/:id` ב-`src/routes/agents.ts` וב-`src/app.ts`.
+- [x] T015 [US2] [Plan:4.1,4.2] כתוב בדיקות רשימה/פרופיל/404 וקשרים ב-`src/routes/agents.test.ts`.
+- [x] T016 [US2] [Plan:4.1] צור שאילתות Agents פרמטריות עם טיפוסי תוצאה ב-`src/db/queries.ts`.
+- [x] T017 [US2] [Plan:4.2] צור רכיבי Props נפרדים לרשימה ולפרטים ב-`src/components/AgentsList.tsx`, `src/components/AgentDetail.tsx` וב-`src/types/components.ts`.
+- [x] T018 [US2] [Plan:4.2] צור ורשום מסלולי `GET /agents` ו-`GET /agents/:id` ב-`src/routes/agents.ts` וב-`src/app.ts`.
 
 ### Phase 5 — User Story 3 (P2)
 
-- [ ] T019 [US3] [Plan:5.1] כתוב בדיקות קטלוג ושמות/תיאורים ב-`src/routes/ailments.test.ts`.
-- [ ] T020 [US3] [Plan:5.1] הוסף שאילתת Ailments פרמטרית ורכיב רשימה עם Props עצמאיים ב-`src/db/queries.ts`, `src/components/AilmentsList.tsx` וב-`src/types/components.ts`.
-- [ ] T021 [US3] [Plan:5.1] צור ורשום `GET /ailments` ב-`src/routes/ailments.ts` וב-`src/app.ts`.
+- [x] T019 [US3] [Plan:5.1] כתוב בדיקות קטלוג ושמות/תיאורים ב-`src/routes/ailments.test.ts`.
+- [x] T020 [US3] [Plan:5.1] הוסף שאילתת Ailments פרמטרית ורכיב רשימה עם Props עצמאיים ב-`src/db/queries.ts`, `src/components/AilmentsList.tsx` וב-`src/types/components.ts`.
+- [x] T021 [US3] [Plan:5.1] צור ורשום `GET /ailments` ב-`src/routes/ailments.ts` וב-`src/app.ts`.
 
 ### Phase 6 — User Story 4 (P2)
 
-- [ ] T022 [Plan:6.1] כתוב בדיקת אתחול ונתונים יציבים בין פתיחות DB ב-`src/db/startup.test.ts`.
-- [ ] T023 [Plan:6.1] הרץ מיגרציות ו-seed לפני האזנה ב-`src/index.ts`, ודווח שגיאות הפעלה באופן גלוי.
+- [x] T022 [Plan:6.1] כתוב בדיקת אתחול ונתונים יציבים בין פתיחות DB ב-`src/db/startup.test.ts`.
+- [x] T023 [Plan:6.1] הרץ מיגרציות ו-seed לפני האזנה ב-`src/index.ts`, ודווח שגיאות הפעלה באופן גלוי.
 
 ### Phase 7 — בדיקות ושחרור מקומי
 
-- [ ] T024 [Plan:7.1] עדכן בדיקת RTL/קידוד טקסט ו-404 לכל מסך ב-`src/app.test.ts` ובבדיקות המסלולים.
-- [ ] T025 [Plan:7.1] אמת נגישות, נכסי CSS ו-375/1280 בדפדפן; תקן `src/static/styles.css` בלבד לפי ממצאים.
-- [ ] T026 [Plan:7.1] הרץ `npm ci`, `npm test`, `npm run typecheck`, `npm run build`, `npm audit`, שרת ו-`git diff --check`; תעד תוצאות ב-`TASKS.md`.
-- [ ] T027 [Plan:7.1] בצע Code Review עמוק עם subagents, אמת כל ממצא, תקן ממצאים רלוונטיים והריץ בדיקות חוזרות.
-- [ ] T028 [Plan:7.1] עדכן README, TASKS, Roadmap ו-CHANGELOG לפי המימוש המאומת.
+- [x] T024 [Plan:7.1] עדכן בדיקת RTL/קידוד טקסט ו-404 לכל מסך ב-`src/app.test.ts` ובבדיקות המסלולים.
+- [x] T025 [Plan:7.1] אמת נגישות, נכסי CSS ו-375/1280 בדפדפן; תקן `src/static/styles.css` בלבד לפי ממצאים.
+- [x] T026 [Plan:7.1] הרץ `npm ci`, `npm test`, `npm run typecheck`, `npm run build`, `npm audit`, שרת ו-`git diff --check`; תעד תוצאות ב-`TASKS.md`.
+- [x] T027 [Plan:7.1] בצע Code Review עמוק עם subagents, אמת כל ממצא, תקן ממצאים רלוונטיים והריץ בדיקות חוזרות.
+- [x] T028 [Plan:7.1] עדכן README, TASKS, Roadmap ו-CHANGELOG לפי המימוש המאומת.
 
 ## מיפוי דרישות
 

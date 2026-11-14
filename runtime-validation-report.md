@@ -6,14 +6,15 @@
 
 **ענפים:** `feature/mvp` → `main`
 
-**Commits:** `02920f4` (תיקון קוד), `40b72f4` (תיעוד), `5943e2c` (אימות ומיזוג)
+**Commits:** `02920f4` (תיקון קוד), `40b72f4` (תיעוד), `5943e2c` (אימות ומיזוג), `b85241c` (תיעוד סופי)
 
 ## מצב עדכני
 
 - ה-Commit `02920f4` עם תיקון בדיקת התאריך נמצא בענף GitHub `feature/mvp`.
 - בדיקת מועד פגישה קוראת רכיבים מתוך הקלט לאחר בדיקת הפורמט; נוסף מקרה
   רגרסיה לחודש מחוץ לטווח.
-- `npm test`: ‏45/45 בדיקות עברו; `npm run typecheck` ו-`npm run build`
+- `npm test`: **45/45 בדיקות** עברו ב-11 קבצי src (ב-`vitest run src` על ענף main
+  ללא תיקיות חיצוניות); `npm run typecheck` ו-`npm run build`
   הסתיימו בקוד 0; `npm audit` דיווח על 0 חולשות.
 - `npm ci --ignore-scripts` הסתיים בהצלחה. התקנת `npm ci` רגילה ניסתה לבנות
   `better-sqlite3` מקוד מקור ונעצרה כי כלי MSVC/Windows SDK אינם זמינים.
@@ -26,13 +27,15 @@
   `lang=he` ו-`dir=rtl`.
 - סטטוס Vercel ב-GitHub עבור `5943e2c`: `success`,
   `Deployment has completed`.
+- **CHANGELOG.md** עודכן ב-2026-11-13 וכולל את כל commits משלב MVP:
+  `6028409`, `02920f4`, `40b72f4`, `5943e2c`, `2301e79`, `b85241c`.
 
 ## תוצאות פקודות בסביבה המקומית
 
 | פקודה | תוצאה | פירוט |
 |---|---|---|
 | התקנת תלויות | עבר עם התאמת Windows | `npm ci --ignore-scripts`; `npm ci` רגיל נעצר בבניית תוסף SQLite עקב כלי C++ חסרים |
-| `npm test` | עבר | 45 בדיקות ב-11 קבצים |
+| `npm test` | עבר | 45 בדיקות ב-11 קבצים ב-`src/` |
 | `npm run typecheck` | עבר | קוד יציאה 0 |
 | `npm run build` | עבר | קוד יציאה 0 |
 | `npm audit` | עבר | 0 חולשות |
@@ -41,6 +44,7 @@
 | מסע דפדפן | עבר | יצירת פגישה, אישור, קריאה מה-Dashboard ועדכון סטטוס |
 | RTL ורספונסיביות | עבר | 14/14 בדיקות מסך ברוחבים 375px ו-1280px |
 | סטטוס Vercel עבור `5943e2c` | עבר | `success`; `Deployment has completed` |
+| CHANGELOG Skill | עבר | סקריפט Python הורץ; `CHANGELOG.md` מכסה את כל commits MVP |
 
 ## היקף
 
